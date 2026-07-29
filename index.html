@@ -195,11 +195,11 @@
       position: relative;
     }
 
-    .nav-link:hover, .nav-link.active {
+    .nav-link:not(.btn):hover, .nav-link:not(.btn).active {
       color: var(--brand-primary);
     }
 
-    .nav-link.active::after {
+    .nav-link:not(.btn).active::after {
       content: '';
       position: absolute;
       bottom: -6px;
@@ -1027,19 +1027,65 @@
       </div>
 
       <div class="project-detail-card" style="margin-bottom: 2rem;">
+        <!-- Top Evolution Concept Architecture Diagram -->
         <div style="margin-bottom: 2rem; text-align: center;">
           <img src="assets/wireframe-balsamiq-vs-hifi.svg" alt="Prototyping Evolution Visual" class="modal-trigger" data-img="assets/wireframe-balsamiq-vs-hifi.svg" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); cursor: pointer;">
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">🔍 Click visual to view expanded high-resolution comparison diagram</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">🔍 Klik arsitektur untuk memperbesar visual perbandingan Low-Fi ke High-Fi</p>
         </div>
 
-        <!-- Hi-Fi Prototype Showcase Gallery -->
-        <div style="border-top: 1px solid var(--border-light); padding-top: 2rem;">
-          <div style="text-align: center; margin-bottom: 1.5rem;">
-            <h4 style="color: var(--brand-primary); font-size: 1.2rem; margin-bottom: 0.5rem;">📸 Hi-Fi Prototype — Live Application Showcase</h4>
-            <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">Berikut adalah capture dari aplikasi Hi-Fi Prototype yang dibuat selama bekerja di PLN Icon Plus sebagai IT Business Analyst. Prototype ini mencakup modul ERS, NewPST, dan Power Inspect.</p>
+        <!-- FASE 1: LOW-FI BALSAMIQ WIREFRAMING -->
+        <div style="border-top: 1px solid var(--border-light); padding-top: 2rem; margin-bottom: 2.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="mono-tag" style="background: var(--amber-light); color: var(--amber-primary); border-color: #FDE68A; margin-bottom: 0.35rem;">FASE 1 // REQUIRMENT DISCOVERY &amp; IDEATION</span>
+              <h4 style="color: var(--text-main); font-size: 1.3rem;">✏️ Low-Fi Wireframing (Balsamiq Mockup Capability)</h4>
+              <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 750px; margin-top: 0.25rem;">Kemampuan merancang sketsa antarmuka awal bersama Business Process Owner (BPO), memetakan alur kerja sistem, hak akses CRUD (Pusat/Regional/Unit Induk), aturan multiselect unit, serta catatan bisnis teknis sebelum masuk ke tahap coding.</p>
+            </div>
+            <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="Wireframe Specification & System Blueprint Document (PDF)" style="font-size: 0.85rem;">📄 View Wireframe Spec (PDF View) ↗</button>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+            <!-- Wireframe 1 -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
+              <img src="assets/power-inspect-wf-page1.png" alt="Perencanaan Survey Gardu Induk — Wireframe Table View" class="modal-trigger" data-img="assets/power-inspect-wf-page1.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+              <div style="padding: 0.85rem;">
+                <strong style="font-size: 0.88rem; display: block; color: var(--text-main); margin-bottom: 0.2rem;">1. Perencanaan Survey (Table View)</strong>
+                <p style="font-size: 0.76rem; color: var(--text-muted);">Tabel status survey &amp; tombol aksi. Catatan: Hak akses CRUD dibatasi untuk Pusat, Regional, &amp; Unit Induk.</p>
+              </div>
+            </div>
+
+            <!-- Wireframe 2 -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
+              <img src="assets/power-inspect-wf-page2.png" alt="Tambah Data Perencanaan Survey — Form & Blasting Concept" class="modal-trigger" data-img="assets/power-inspect-wf-page2.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+              <div style="padding: 0.85rem;">
+                <strong style="font-size: 0.88rem; display: block; color: var(--text-main); margin-bottom: 0.2rem;">2. Form Tambah Data (Multiselect Rules)</strong>
+                <p style="font-size: 0.76rem; color: var(--text-muted);">Form survey berkonsep blasting cakupan unit, multiselect Regional-GI, &amp; dynamic form inspector.</p>
+              </div>
+            </div>
+
+            <!-- Wireframe 3 -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
+              <img src="assets/power-inspect-wf-page3.png" alt="Edit Data Perencanaan Survey — Filter Status Aset" class="modal-trigger" data-img="assets/power-inspect-wf-page3.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+              <div style="padding: 0.85rem;">
+                <strong style="font-size: 0.88rem; display: block; color: var(--text-main); margin-bottom: 0.2rem;">3. Form Edit Data (Asset Status Filter)</strong>
+                <p style="font-size: 0.76rem; color: var(--text-muted);">Pengubahan spesifikasi survey, penyesuaian formulir inspeksi, &amp; status aset trafo (Operasi/Tidak Operasi).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FASE 2: HIGH-FI INTERACTIVE PROTOTYPING -->
+        <div style="border-top: 1px solid var(--border-light); padding-top: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="mono-tag" style="background: var(--emerald-light); color: var(--emerald-primary); border-color: #A7F3D0; margin-bottom: 0.35rem;">FASE 2 // PRODUCTION READY HTML PROTOTYPE</span>
+              <h4 style="color: var(--text-main); font-size: 1.3rem;">🌐 High-Fi Prototyping (HTML/CSS Production Capability)</h4>
+              <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 750px; margin-top: 0.25rem;">Kemampuan menerjemahkan dokumen wireframe &amp; BRS menjadi aplikasi web prototype yang responsif, siap diuji dalam tahap UAT, dan terhubung dengan komponen UI nyata (Peta Leaflet, Chart, &amp; Sidebar Modul).</p>
+            </div>
+            <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success" style="font-size: 0.85rem;">🚀 Launch Live Hi-Fi Application ↗</a>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
             <!-- Screenshot 1: Hi-Fi Portal Home -->
             <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
               <img src="assets/hifi-portal-home.png" alt="Hi-Fi Portal Home — Enterprise Module Selector" class="modal-trigger" data-img="assets/hifi-portal-home.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
@@ -1057,10 +1103,6 @@
                 <p style="font-size: 0.78rem; color: var(--text-muted);">Dashboard ketersediaan ERS dengan peta Leaflet, KPI metrics (Total ERS Terpasang), dan chart analitik per unit.</p>
               </div>
             </div>
-          </div>
-
-          <div style="text-align: center;">
-            <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success" style="font-size: 0.95rem; padding: 0.75rem 1.8rem;">🚀 Explore the Full Live Application ↗</a>
           </div>
         </div>
       </div>
@@ -1130,7 +1172,7 @@
               <span style="font-size: 0.82rem; background: var(--bg-surface); padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid var(--border-medium); color: var(--text-muted); font-weight: 600;">Business Analyst Scope</span>
             </div>
 
-            <div class="project-body-grid">
+            <div class="project-body-grid" style="margin-bottom: 1.5rem;">
               <div class="deliverable-box">
                 <h5 style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--brand-primary);">Scope Analisis Kebutuhan &amp; Logika Bisnis:</h5>
                 <ul class="deliverable-list">
@@ -1139,6 +1181,9 @@
                   <li><strong>Arsitektur Row-Level Security (RLS):</strong> Menyusun aturan tata kelola keamanan data terisolasi berdasarkan hierarki wilayah kerja (UP3 / ULTG / UID) sehingga user unit hanya dapat mengelola aset wilayahnya sendiri.</li>
                   <li><strong>Requirement Documentation (BRS &amp; SDD):</strong> Mengarang dokumen spesifikasi teknis lengkap yang menjembatani komunikasi antara Business Process Owner (BPO) dan tim developer/QA.</li>
                 </ul>
+                <div style="margin-top: 1.25rem;">
+                  <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/Monitoring AHI.pdf" data-title="Monitoring AHI Specification Document (PDF)" style="width: 100%; font-size: 0.85rem;">📄 View Monitoring AHI Spec (PDF View) ↗</button>
+                </div>
               </div>
 
               <div class="project-diagram-box">
@@ -1147,59 +1192,88 @@
                 <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">🔍 Klik diagram untuk melihat skema ERD &amp; Kebijakan RLS secara lengkap</p>
               </div>
             </div>
-          </div>
 
-          <!-- SECTION 2: KEMAMPUAN TEKNIS & PERFORMANCE ENGINEERING -->
-          <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 14px; padding: 1.75rem;">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light);">
-              <div>
-                <span class="mono-tag" style="background: var(--emerald-light); color: var(--emerald-primary); border-color: #A7F3D0; font-size: 0.75rem; margin-bottom: 0.35rem;">BAGIAN 2 // KEMAMPUAN TEKNIS &amp; PERFORMANCE TESTING</span>
-                <h4 style="font-size: 1.35rem; color: var(--text-main);">⚡ Pengujian Performa (Stress Testing), Metric Benchmark, &amp; Tuning Query</h4>
-              </div>
-              <span style="font-size: 0.82rem; background: var(--bg-surface); padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid #A7F3D0; color: var(--emerald-primary); font-weight: 600;">Technical Engineering Scope</span>
-            </div>
-
-            <div class="project-body-grid" style="margin-bottom: 1.5rem;">
-              <div class="deliverable-box">
-                <h5 style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--emerald-primary);">Scope Pengujian Teknis &amp; Rekayasa Performa:</h5>
-                <ul class="deliverable-list">
-                  <li><strong>Simulasi Peak Concurrency Load Testing:</strong> Merancang &amp; mengeksekusi skenario stress test menggunakan beban 105 Virtual Users (VU) secara simultan dengan total 88.200 request untuk menguji batas ketahanan server.</li>
-                  <li><strong>Pencapaian 0.00% Stress Error Rate:</strong> Memastikan keandalan backend API tetap stabil dengan tingkat kegagalan 0.00% pada throughput puncak 147.2 req/sec selama pengujian intensif.</li>
-                  <li><strong>Benchmarking &amp; Tuning Latensi Query:</strong> Mengoptimalkan performa query SQL kompleks dengan indexing pada filter territorial RLS (`unit_id`, `ultg_code`), menekan rata-rata waktu respon hingga 672ms (P95: 1.12s).</li>
-                  <li><strong>API Validation &amp; Quality Assurance:</strong> Menjalankan otomatisasi pengujian API (Postman) dan verifikasi skenario positif/negatif sebelum implementasi di lingkungan staging &amp; produksi.</li>
-                </ul>
+            <!-- Wireframe Showcase Gallery (Balsamiq UI Design) -->
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                <h5 style="font-size: 0.98rem; color: var(--text-main);">✏️ Wireframe Blueprint Power Inspect (Balsamiq Mockup):</h5>
+                <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="Power Inspect Wireframe Document (PDF View)" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">📄 Open PDF View ↗</button>
               </div>
 
-              <!-- Load Testing Benchmark Metric Badges & Highlight -->
-              <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
-                <h5 style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-main);">📊 Metric Summary Stress Test (105 VU):</h5>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
-                  <div style="background: var(--bg-subtle); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-light);">
-                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">TOTAL REQUESTS</span>
-                    <strong style="font-size: 1.2rem; color: var(--brand-primary); font-family: var(--font-mono);">88,200</strong>
-                  </div>
-                  <div style="background: var(--bg-subtle); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-light);">
-                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">THROUGHPUT</span>
-                    <strong style="font-size: 1.2rem; color: var(--emerald-primary); font-family: var(--font-mono);">147.2 req/s</strong>
-                  </div>
-                  <div style="background: var(--bg-subtle); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-light);">
-                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">P95 RESPONSE TIME</span>
-                    <strong style="font-size: 1.2rem; color: var(--amber-primary); font-family: var(--font-mono);">1,120 ms</strong>
-                  </div>
-                  <div style="background: var(--bg-subtle); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-light);">
-                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">SYSTEM AVAILABILITY</span>
-                    <strong style="font-size: 1.2rem; color: var(--emerald-primary); font-family: var(--font-mono);">99.99%</strong>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+                <!-- Page 1 -->
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden;">
+                  <img src="assets/power-inspect-wf-page1.png" alt="Perencanaan Survey Gardu Induk — Wireframe Table View" class="modal-trigger" data-img="assets/power-inspect-wf-page1.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+                  <div style="padding: 0.6rem 0.75rem;">
+                    <strong style="font-size: 0.82rem; display: block; color: var(--text-main);">1. Perencanaan Survey</strong>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Tabel status survey &amp; tombol Tambah Perencanaan. Actor CRUD: Pusat, Regional, Unit Induk.</span>
                   </div>
                 </div>
-                <p style="font-size: 0.8rem; color: var(--text-muted); font-style: italic; line-height: 1.4;">*Pengujian dilakukan secara bertahap (Ramp-up -> Peak Stress -> Ramp-down) untuk menguji efisiensi alokasi memori dan koneksi pool database PostgreSQL.*</p>
+
+                <!-- Page 2 -->
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden;">
+                  <img src="assets/power-inspect-wf-page2.png" alt="Tambah Data Perencanaan Survey — Form & Blasting Concept" class="modal-trigger" data-img="assets/power-inspect-wf-page2.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+                  <div style="padding: 0.6rem 0.75rem;">
+                    <strong style="font-size: 0.82rem; display: block; color: var(--text-main);">2. Form Tambah Data</strong>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Konsep blasting cakupan unit, multiselect Regional-GI, &amp; penyesuaian formulir survey.</span>
+                  </div>
+                </div>
+
+                <!-- Page 3 -->
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden;">
+                  <img src="assets/power-inspect-wf-page3.png" alt="Edit Data Perencanaan Survey — Filter Status Aset" class="modal-trigger" data-img="assets/power-inspect-wf-page3.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+                  <div style="padding: 0.6rem 0.75rem;">
+                    <strong style="font-size: 0.82rem; display: block; color: var(--text-main);">3. Form Edit Data</strong>
+                    <span style="font-size: 0.72rem; color: var(--text-muted);">Edit cakupan survey, penyesuaian formulir, &amp; pemfilteran status aset trafo.</span>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
 
-            <!-- Full Width Stress Metric Chart Image -->
-            <div>
-              <h5 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--text-main);">📈 Grafik Benchmark Concurrency vs Latensi Respon (Load Test):</h5>
-              <img src="assets/load-test-chart.svg" alt="Load Test Chart" class="modal-trigger" data-img="assets/load-test-chart.svg" style="width: 100%; border-radius: 8px; cursor: pointer; border: 1px solid var(--border-light);">
-              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">🔍 Klik grafik untuk membuka tampilan resolusi tinggi</p>
+          <!-- ADDITIONAL TECHNICAL CAPABILITY: PERFORMANCE TESTING & REPORT -->
+          <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 14px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border-light); flex-wrap: wrap; gap: 0.75rem;">
+              <div>
+                <span class="mono-tag" style="background: var(--emerald-light); color: var(--emerald-primary); border-color: #A7F3D0; font-size: 0.72rem; margin-bottom: 0.25rem;">TECHNICAL CAPABILITY // QA &amp; STRESS BENCHMARK</span>
+                <h4 style="font-size: 1.15rem; color: var(--text-main);">⚡ Performance Load Testing &amp; Benchmark Reporting</h4>
+              </div>
+              <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/Power-Inspect-performance-report-10.pdf" data-title="Power Inspect Performance Test Report (#10 PDF Document)" style="font-size: 0.82rem; padding: 0.4rem 0.95rem;">📄 View Performance Report (PDF View) ↗</button>
+            </div>
+
+            <div class="project-body-grid" style="align-items: center;">
+              <!-- Left Info & Metrics Summary -->
+              <div>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5;">
+                  Sebagai nilai tambah teknis, juga memiliki kapabilitas dalam merancang &amp; menguji performa backend API menggunakan skenario <strong>105 Virtual Users (VU)</strong> simultan (total 88.200 request) untuk memastikan keandalan sistem gardu induk saat trafik puncak.
+                </p>
+
+                <!-- Compact Metric Badges -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem;">
+                  <div style="background: var(--bg-surface); padding: 0.6rem; border-radius: 8px; border: 1px solid var(--border-light); text-align: center;">
+                    <span style="font-size: 0.7rem; color: var(--text-subtle); display: block;">BEBAN USER</span>
+                    <strong style="font-size: 1.05rem; color: var(--brand-primary); font-family: var(--font-mono);">105 VU</strong>
+                  </div>
+                  <div style="background: var(--bg-surface); padding: 0.6rem; border-radius: 8px; border: 1px solid var(--border-light); text-align: center;">
+                    <span style="font-size: 0.7rem; color: var(--text-subtle); display: block;">TOTAL REQUEST</span>
+                    <strong style="font-size: 1.05rem; color: var(--brand-primary); font-family: var(--font-mono);">88.2K</strong>
+                  </div>
+                  <div style="background: var(--bg-surface); padding: 0.6rem; border-radius: 8px; border: 1px solid var(--border-light); text-align: center;">
+                    <span style="font-size: 0.7rem; color: var(--text-subtle); display: block;">THROUGHPUT</span>
+                    <strong style="font-size: 1.05rem; color: var(--emerald-primary); font-family: var(--font-mono);">146.88 r/s</strong>
+                  </div>
+                  <div style="background: var(--bg-surface); padding: 0.6rem; border-radius: 8px; border: 1px solid var(--border-light); text-align: center;">
+                    <span style="font-size: 0.7rem; color: var(--text-subtle); display: block;">ERROR RATE</span>
+                    <strong style="font-size: 1.05rem; color: var(--emerald-primary); font-family: var(--font-mono);">0.00%</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right PDF Report Thumbnail Preview -->
+              <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden; padding: 0.5rem; text-align: center;">
+                <img src="assets/performance-report-thumb.png" alt="Performance Test Report Thumbnail — Power Inspect" class="modal-trigger" data-img="assets/performance-report-thumb.png" style="width: 100%; border-radius: 6px; cursor: pointer; display: block; max-height: 180px; object-fit: cover; object-position: top;">
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem;">🔍 Preview Report PDF (Feb 18, 2026 #10)</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1246,8 +1320,9 @@
                 <li>Designed multi-tier approval workflow for transmission line replacement schedules.</li>
                 <li>Created the full live Hi-Fi Transmisi prototype web application.</li>
               </ul>
-              <div style="margin-top: 1.25rem;">
-                <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%;">🌐 Open Live Transmisi Prototype App ↗</a>
+              <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-primary" style="flex: 1;">🌐 Open Live Transmisi Prototype ↗</a>
+                <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="System Requirement Specification (BRS/SDD PDF Document)" style="flex: 1;">📄 View BRS / SDD (PDF) ↗</button>
               </div>
             </div>
             <div class="project-diagram-box">
@@ -1313,6 +1388,9 @@
                 <li>Implemented BPO stakeholder requirements into rapid emergency incident ticketing flows.</li>
                 <li>Optimized material reservation logic preventing stock duplication during emergency events.</li>
               </ul>
+              <div style="margin-top: 1.25rem;">
+                <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/Mobile ERS - Stock Opname.pdf" data-title="Mobile ERS - Stock Opname Specification Document (PDF)" style="width: 100%;">📄 View Mobile ERS Spec (PDF View) ↗</button>
+              </div>
             </div>
             <div class="project-diagram-box">
               <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">Emergency Mobilization Sequence Diagram:</h4>
@@ -1398,13 +1476,23 @@
     </div>
   </footer>
 
-  <!-- Modal Dialog Viewer for High-Res Diagrams -->
+  <!-- Modal Dialog Viewer for High-Res Diagrams & PDF Documents -->
   <div id="imageModal" class="modal">
     <div class="modal-content-box">
       <button class="modal-close-btn" id="modalClose">&times;</button>
       <h3 id="modalTitle" style="color: var(--brand-primary); margin-bottom: 0.5rem;">Technical Artifact View</h3>
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">High-resolution vector architecture diagram view.</p>
+      <p id="modalSubtitle" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">High-resolution vector architecture diagram view.</p>
+      
+      <!-- Image Viewer -->
       <img id="modalImg" class="modal-img-view" src="" alt="Artifact Expanded View">
+      
+      <!-- PDF Document Viewer Frame -->
+      <iframe id="modalPdfFrame" src="" style="width: 100%; height: 72vh; border: 1px solid var(--border-light); border-radius: 8px; display: none;"></iframe>
+      
+      <!-- PDF Actions Bar -->
+      <div id="pdfActions" style="display: none; margin-top: 1.25rem; text-align: center; justify-content: center; gap: 1rem;">
+        <a id="modalPdfDownloadBtn" href="" target="_blank" rel="noopener" class="btn btn-primary">📄 Open Full Screen / Download PDF Document ↗</a>
+      </div>
     </div>
   </div>
 

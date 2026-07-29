@@ -29,33 +29,79 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* -------------------------------------------------------------------------- */
-  /* 2. Modal Diagram Viewer for Technical Artifacts
+  /* 2. Modal Diagram & PDF Document Viewer
   /* -------------------------------------------------------------------------- */
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImg');
+  const modalPdfFrame = document.getElementById('modalPdfFrame');
+  const pdfActions = document.getElementById('pdfActions');
+  const modalPdfDownloadBtn = document.getElementById('modalPdfDownloadBtn');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalSubtitle = document.getElementById('modalSubtitle');
   const modalClose = document.getElementById('modalClose');
-  const modalTriggers = document.querySelectorAll('.modal-trigger');
 
+  const modalTriggers = document.querySelectorAll('.modal-trigger');
+  const pdfTriggers = document.querySelectorAll('.pdf-modal-trigger');
+
+  // Handle Image Triggers
   modalTriggers.forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
       const imgSrc = trigger.getAttribute('data-img') || trigger.getAttribute('src');
-      const altText = trigger.getAttribute('alt') || 'Technical Diagram';
-      modalImg.src = imgSrc;
-      modal.classList.add('active');
+      const title = trigger.getAttribute('alt') || 'Technical Artifact View';
+
+      if (modalTitle) modalTitle.innerText = title;
+      if (modalSubtitle) modalSubtitle.innerText = 'High-resolution vector architecture diagram view.';
+      
+      if (modalImg) {
+        modalImg.src = imgSrc;
+        modalImg.style.display = 'block';
+      }
+      if (modalPdfFrame) modalPdfFrame.style.display = 'none';
+      if (pdfActions) pdfActions.style.display = 'none';
+
+      if (modal) modal.classList.add('active');
     });
   });
 
-  if (modalClose) {
-    modalClose.addEventListener('click', () => {
-      modal.classList.remove('active');
+  // Handle PDF Document Triggers
+  pdfTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pdfSrc = trigger.getAttribute('data-pdf');
+      const title = trigger.getAttribute('data-title') || 'Wireframe Specification (PDF Document)';
+
+      if (modalTitle) modalTitle.innerText = title;
+      if (modalSubtitle) modalSubtitle.innerText = 'Interactive PDF Document & System Specification Viewer.';
+
+      if (modalImg) modalImg.style.display = 'none';
+
+      if (modalPdfFrame) {
+        modalPdfFrame.src = pdfSrc;
+        modalPdfFrame.style.display = 'block';
+      }
+      if (pdfActions) {
+        pdfActions.style.display = 'flex';
+        if (modalPdfDownloadBtn) modalPdfDownloadBtn.href = pdfSrc;
+      }
+
+      if (modal) modal.classList.add('active');
     });
+  });
+
+  const closeModal = () => {
+    if (modal) modal.classList.remove('active');
+    if (modalPdfFrame) modalPdfFrame.src = '';
+  };
+
+  if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
   }
 
   if (modal) {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
-        modal.classList.remove('active');
+        closeModal();
       }
     });
   }
@@ -63,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close modal on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-      modal.classList.remove('active');
+      closeModal();
     }
   });
 
@@ -97,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /* 4. Hero Number Stat Counter Animation
   /* -------------------------------------------------------------------------- */
   const statNumbers = document.querySelectorAll('.stat-number');
-  let animated = false;
 
   const animateStats = () => {
     statNumbers.forEach(stat => {
