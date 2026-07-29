@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blue-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="500" fill="#F8FAFC" rx="12"/>
+  <rect width="998" height="498" x="1" y="1" fill="none" stroke="#E2E8F0" stroke-width="2" rx="12"/>
+
+  <!-- Title -->
+  <text x="40" y="45" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#0F172A">POWER INSPECT — SYSTEM LOAD TESTING &amp; API METRICS</text>
+  <text x="40" y="68" font-family="'Inter', sans-serif" font-size="12" fill="#64748B">Aggregated Stress Test Results under 105 Virtual Users (VU) Concurrency</text>
+
+  <!-- Metric Badges Top Right -->
+  <g transform="translate(480, 25)">
+    <rect x="0" y="0" width="110" height="50" fill="#FFFFFF" stroke="#CBD5E1" rx="6"/>
+    <text x="55" y="20" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#64748B">VIRTUAL USERS</text>
+    <text x="55" y="40" text-anchor="middle" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#1D4ED8">105 VU</text>
+
+    <rect x="120" y="0" width="110" height="50" fill="#FFFFFF" stroke="#CBD5E1" rx="6"/>
+    <text x="175" y="20" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#64748B">TOTAL REQS</text>
+    <text x="175" y="40" text-anchor="middle" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#0F172A">88,200</text>
+
+    <rect x="240" y="0" width="110" height="50" fill="#FFFFFF" stroke="#CBD5E1" rx="6"/>
+    <text x="295" y="20" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#64748B">ERROR RATE</text>
+    <text x="295" y="40" text-anchor="middle" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#059669">0.00%</text>
+
+    <rect x="360" y="0" width="110" height="50" fill="#FFFFFF" stroke="#CBD5E1" rx="6"/>
+    <text x="415" y="20" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#64748B">AVG LATENCY</text>
+    <text x="415" y="40" text-anchor="middle" font-family="'Inter', sans-serif" font-size="16" font-weight="bold" fill="#D97706">672 ms</text>
+  </g>
+
+  <!-- Chart Area -->
+  <g transform="translate(60, 110)">
+    <line x1="0" y1="50" x2="880" y2="50" stroke="#E2E8F0" stroke-dasharray="4,4"/>
+    <text x="-10" y="55" text-anchor="end" font-family="'Fira Code', monospace" font-size="10" fill="#94A3B8">1000ms</text>
+
+    <line x1="0" y1="120" x2="880" y2="120" stroke="#E2E8F0" stroke-dasharray="4,4"/>
+    <text x="-10" y="125" text-anchor="end" font-family="'Fira Code', monospace" font-size="10" fill="#94A3B8">750ms</text>
+
+    <line x1="0" y1="190" x2="880" y2="190" stroke="#E2E8F0" stroke-dasharray="4,4"/>
+    <text x="-10" y="195" text-anchor="end" font-family="'Fira Code', monospace" font-size="10" fill="#94A3B8">500ms</text>
+
+    <line x1="0" y1="260" x2="880" y2="260" stroke="#E2E8F0" stroke-dasharray="4,4"/>
+    <text x="-10" y="265" text-anchor="end" font-family="'Fira Code', monospace" font-size="10" fill="#94A3B8">250ms</text>
+
+    <line x1="0" y1="310" x2="880" y2="310" stroke="#CBD5E1" stroke-width="1.5"/>
+    <text x="-10" y="315" text-anchor="end" font-family="'Fira Code', monospace" font-size="10" fill="#94A3B8">0ms</text>
+
+    <!-- X Axis labels -->
+    <text x="50" y="335" font-family="'Fira Code', monospace" font-size="10" fill="#64748B">00:00</text>
+    <text x="210" y="335" font-family="'Fira Code', monospace" font-size="10" fill="#64748B">05:00 (Ramp-up)</text>
+    <text x="430" y="335" font-family="'Fira Code', monospace" font-size="10" fill="#64748B">10:00 (Peak 105 VU)</text>
+    <text x="650" y="335" font-family="'Fira Code', monospace" font-size="10" fill="#64748B">15:00 (Sustained)</text>
+    <text x="830" y="335" font-family="'Fira Code', monospace" font-size="10" fill="#64748B">20:00 (Cooldown)</text>
+
+    <!-- Area Chart Polygon -->
+    <polygon points="0,310 50,300 210,180 430,140 650,145 830,290 880,310 880,310 0,310" fill="url(#blue-fill)"/>
+
+    <!-- Response Time Line -->
+    <path d="M 0 310 L 50 300 L 210 180 L 430 140 L 650 145 L 830 290 L 880 310" stroke="#2563EB" stroke-width="3" fill="none"/>
+
+    <!-- Peak Indicator Dot -->
+    <circle cx="430" cy="140" r="5" fill="#1D4ED8"/>
+    <circle cx="430" cy="140" r="9" stroke="#2563EB" stroke-width="1.5" fill="none"/>
+    <rect x="380" y="90" width="100" height="35" fill="#FFFFFF" stroke="#CBD5E1" rx="4"/>
+    <text x="430" y="106" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="bold" fill="#1D4ED8">Peak 672ms</text>
+    <text x="430" y="118" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#64748B">105 Concurrent VUs</text>
+  </g>
+
+  <!-- Endpoint Latency Breakdown Table -->
+  <g transform="translate(60, 390)">
+    <rect width="880" height="85" fill="#FFFFFF" stroke="#CBD5E1" rx="6"/>
+    <text x="20" y="25" font-family="'Inter', sans-serif" font-size="12" font-weight="bold" fill="#0F172A">CRITICAL API ENDPOINTS LATENCY BREAKDOWN</text>
+
+    <text x="20" y="52" font-family="'Fira Code', monospace" font-size="11" fill="#1E40AF">GET /api/v1/gardu-induk/ahi-summary</text>
+    <text x="320" y="52" font-family="'Inter', sans-serif" font-size="11" fill="#059669">Avg: 340ms | P95: 510ms | 0% Error</text>
+
+    <text x="20" y="72" font-family="'Fira Code', monospace" font-size="11" fill="#1E40AF">POST /api/v1/inspeksi/cbm-batch-upload</text>
+    <text x="320" y="72" font-family="'Inter', sans-serif" font-size="11" fill="#D97706">Avg: 890ms | P95: 1,120ms | 0% Error</text>
+
+    <text x="650" y="60" font-family="'Inter', sans-serif" font-size="12" font-weight="bold" fill="#059669">✓ 100% SLA Compliance</text>
+  </g>
+</svg>

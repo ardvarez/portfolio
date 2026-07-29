@@ -1,0 +1,24 @@
+# Jekyll Configuration for GitHub Pages Deployment
+title: Muhammad Ardan Al Farezi Arifin — Portfolio
+description: IT Business Analyst & System Solutions Specialist Portfolio
+url: "" # Will automatically be set by GitHub Pages
+baseurl: ""
+
+# Markdown & Syntax Highlighting Settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude unneeded files from Jekyll build
+exclude:
+  - .system_generated
+  - .agents
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Include essential static assets
+include:
+  - assets
+  - index.html
+  - styles.css
+  - script.js

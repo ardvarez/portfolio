@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Ardan Al Farezi Arifin | IT Business Analyst & System Solutions Specialist</title>
+  <meta name="description" content="Portfolio of Muhammad Ardan Al Farezi Arifin - IT Business Analyst & System Solutions Specialist at PLN Icon Plus specializing in Substation & Transmission Asset Management, System Security Architecture, RLS, and High-Fi Prototyping.">
+  <style>
+    /* ==========================================================================
+       HUMAN EDITORIAL DESIGN SYSTEM & CORPORATE PALETTE
+       Muhammad Ardan Al Farezi Arifin — IT Business Analyst & System Specialist
+       ========================================================================== */
+
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    :root {
+      /* Natural Slate & Warm Corporate Palette */
+      --bg-main: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --bg-glass: rgba(255, 255, 255, 0.95);
+
+      /* Primary Brand Accents (Royal Indigo & Deep Slate) */
+      --brand-primary: #2563EB;
+      --brand-hover: #1D4ED8;
+      --brand-light: #EFF6FF;
+      --brand-border: #BFDBFE;
+
+      /* Status & Natural Accents */
+      --emerald-primary: #059669;
+      --emerald-light: #ECFDF5;
+      --amber-primary: #D97706;
+      --amber-light: #FFFBEB;
+      --rose-primary: #DC2626;
+
+      /* Typography Colors */
+      --text-main: #0F172A;      /* Slate 900 */
+      --text-muted: #475569;     /* Slate 600 */
+      --text-subtle: #64748B;    /* Slate 500 */
+      --text-inverse: #FFFFFF;
+
+      /* Borders & Natural Shadows */
+      --border-light: #E2E8F0;
+      --border-medium: #CBD5E1;
+      --border-focus: #2563EB;
+
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.06), 0 2px 4px -1px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+
+      /* Fonts */
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Fira Code', monospace;
+
+      /* Transitions */
+      --transition-fast: 0.15s ease;
+      --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Reset & Global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-main);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-medium);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-subtle);
+    }
+
+    /* Typography Utilities */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-main);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .gradient-text {
+      color: var(--brand-primary);
+    }
+
+    .mono-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--brand-primary);
+      background: var(--brand-light);
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--brand-border);
+      display: inline-block;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header & Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 76px;
+      background: var(--bg-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--brand-primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--text-inverse);
+      font-size: 1.05rem;
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    .brand-role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: block;
+      font-weight: 400;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--brand-primary);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--brand-primary);
+      border-radius: 2px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition-normal);
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--brand-primary);
+      color: var(--text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-outline {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      border-color: var(--border-medium);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-subtle);
+      border-color: var(--text-muted);
+    }
+
+    .btn-success {
+      background: var(--emerald-primary);
+      color: var(--text-inverse);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-success:hover {
+      background: #047857;
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 90px;
+      position: relative;
+      background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-main) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      background: var(--brand-light);
+      border: 1px solid var(--brand-border);
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--brand-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-badge .pulse {
+      width: 7px;
+      height: 7px;
+      background: var(--brand-primary);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: var(--text-main);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .stat-item .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--brand-primary);
+      font-family: var(--font-mono);
+    }
+
+    .stat-item .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Card Widget Visual Right Side */
+    .hero-card-visual {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+
+    .visual-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .dot-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #EF4444; }
+    .dot-yellow { background: #F59E0B; }
+    .dot-green { background: #10B981; }
+
+    .visual-title {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-subtle);
+    }
+
+    .profile-card {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: var(--bg-subtle);
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+      border: 1px solid var(--border-light);
+    }
+
+    .profile-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      background: var(--brand-light);
+      border: 1px solid var(--brand-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .profile-info h4 {
+      font-size: 1rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .profile-info p {
+      font-size: 0.8rem;
+      color: var(--brand-primary);
+      font-weight: 500;
+    }
+
+    .competency-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .competency-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0.85rem;
+      background: var(--bg-surface);
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      font-size: 0.85rem;
+    }
+
+    .competency-item span {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .competency-level {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--emerald-primary);
+      background: var(--emerald-light);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* Sections General */
+    .section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3.5rem auto;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-mono);
+      color: var(--brand-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Prototyping Evolution Section */
+    .evolution-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .evolution-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+    }
+
+    .evolution-card:hover {
+      border-color: var(--border-medium);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .evolution-card-header {
+      padding: 1.25rem 1.5rem;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .evolution-card-body {
+      padding: 1.5rem;
+    }
+
+    .feature-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .feature-pill {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+    }
+
+    /* Projects Section (Tabs Architecture) */
+    .project-tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .tab-btn {
+      padding: 0.8rem 1.6rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: 30px;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition-normal);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+      border-color: var(--brand-primary);
+    }
+
+    .tab-btn.active {
+      background: var(--brand-primary);
+      color: var(--text-inverse);
+      border-color: var(--brand-primary);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .project-detail-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .project-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .project-header-info h3 {
+      font-size: 1.7rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-header-info p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .project-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .metric-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .metric-card .val {
+      font-size: 1.7rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--brand-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .metric-card .lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .project-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .deliverable-box h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .deliverable-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .deliverable-list li {
+      position: relative;
+      padding-left: 1.75rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .deliverable-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--emerald-primary);
+      font-weight: bold;
+    }
+
+    .project-diagram-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .project-diagram-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      border: 1px solid var(--border-light);
+    }
+
+    .project-diagram-box img:hover {
+      transform: scale(1.01);
+      border-color: var(--brand-primary);
+    }
+
+    /* Impact Summary Matrix Table */
+    .impact-table-wrapper {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      overflow-x: auto;
+      box-shadow: var(--shadow-md);
+    }
+
+    .impact-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .impact-table th {
+      background: var(--bg-subtle);
+      padding: 1.1rem 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-light);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+    }
+
+    .impact-table td {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-muted);
+      vertical-align: top;
+    }
+
+    .impact-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .impact-table tr:hover td {
+      background: var(--bg-subtle);
+    }
+
+    .project-name-cell {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Artifact Modal Showcase */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal.active {
+      display: flex;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .modal-content-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .modal-close-btn:hover {
+      background: var(--rose-primary);
+      color: #fff;
+      border-color: var(--rose-primary);
+    }
+
+    .modal-img-view {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      margin-top: 1rem;
+    }
+
+    /* Contact & Footer */
+    .contact-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .contact-card h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border-light);
+      text-align: center;
+      color: var(--text-subtle);
+      font-size: 0.88rem;
+      background: var(--bg-surface);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .evolution-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-body-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-title {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+      .project-metrics-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-icon">AF</div>
+        <div>
+          <span class="brand-text">Ardan Al Farezi</span>
+          <span class="brand-role">IT Business Analyst @ PLN Icon Plus</span>
+        </div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#evolution" class="nav-link">Prototyping</a></li>
+        <li><a href="#projects" class="nav-link">Featured Projects</a></li>
+        <li><a href="#impact" class="nav-link">Enterprise Impact</a></li>
+        <li><a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="nav-link btn btn-success" style="color:#fff;">🚀 Live Hi-Fi Transmisi ↗</a></li>
+        <li><a href="#contact" class="nav-link btn btn-primary">Get In Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse"></span> IT Business Analyst @ PLN Icon Plus
+        </div>
+        <h1 class="hero-title">
+          Engineering Enterprise Solutions with <span class="gradient-text">Precision & Strategy</span>
+        </h1>
+        <p class="hero-subtitle">
+          Over 3 years of experience driving digital transformation across PLN Icon Plus (Charge.in, GBMO Stream GAS, Power Inspect). Specializing in Substation &amp; Transmission Asset Management, BRD/BRS/SDD authoring, RLS security, and High-Fi Prototyping.
+        </p>
+        <div class="hero-cta">
+          <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success">🚀 Launch Live Hi-Fi Prototype ↗</a>
+          <a href="#projects" class="btn btn-primary">Explore Case Studies →</a>
+          <a href="mailto:ardvarez@gmail.com" class="btn btn-outline">✉️ Contact Email</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number" data-target="3">3+ Yrs</div>
+            <div class="stat-label">Enterprise Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="11">11+</div>
+            <div class="stat-label">Data Sources Consolidated</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="100">0.00%</div>
+            <div class="stat-label">Stress Test Error Rate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Profile Widget -->
+      <div class="hero-card-visual">
+        <div class="visual-header">
+          <div class="dot-controls">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="visual-title">ardan_profile_cv.json</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-avatar">👨‍💻</div>
+          <div class="profile-info">
+            <h4>Muhammad Ardan Al Farezi Arifin</h4>
+            <p>IT Business Analyst • PLN Icon Plus</p>
+            <p style="font-size:0.75rem; color:var(--text-subtle);">📍 Karawang, Jawa Barat, Indonesia</p>
+          </div>
+        </div>
+        <div class="competency-list">
+          <div class="competency-item">
+            <span>PLN Icon Plus IT BA</span>
+            <span class="competency-level">JAN 2023 - PRESENT</span>
+          </div>
+          <div class="competency-item">
+            <span>PLN Icon Plus Junior QA</span>
+            <span class="competency-level">DEC 2021 - APR 2023</span>
+          </div>
+          <div class="competency-item">
+            <span>Telkom University (S.Kom)</span>
+            <span class="competency-level">GPA 3.59 / 4.00</span>
+          </div>
+          <div class="competency-item">
+            <span>Certifications</span>
+            <span class="competency-level">SAP SCM100 & HR050</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Profile & Core Competencies -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// LEADERSHIP &amp; ANALYSIS FRAMEWORK</span>
+        <h2 class="section-title">Bridging Business Needs &amp; Technical Execution</h2>
+        <p class="section-desc">Combining structured Scrum frameworks, BPO stakeholder communication, and technical database security engineering across utility-scale applications.</p>
+      </div>
+
+      <div class="evolution-grid">
+        <div class="evolution-card">
+          <div class="evolution-card-header">
+            <h4>📋 Requirements Analysis &amp; Architecture</h4>
+            <span class="mono-tag">ANALYST DELIVERABLES</span>
+          </div>
+          <div class="evolution-card-body">
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">End-to-end authoring of technical documentation ensuring flawless alignment between business stakeholders (BPO) and developer/QA teams.</p>
+            <div class="feature-pill-list">
+              <span class="feature-pill">Business Requirements System (BRS)</span>
+              <span class="feature-pill">Software Design Document (SDD)</span>
+              <span class="feature-pill">UML &amp; ERD Structural Blueprints</span>
+              <span class="feature-pill">SQL Operational Analytics</span>
+              <span class="feature-pill">Feature Impact Analysis</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="evolution-card">
+          <div class="evolution-card-header">
+            <h4>🔒 Security &amp; Quality Governance</h4>
+            <span class="mono-tag">RLS &amp; QA TESTING</span>
+          </div>
+          <div class="evolution-card-body">
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">Designing territorial data isolation policies (UP3 / ULTG / UID) and executing rigorous API &amp; Performance stress testing scenarios.</p>
+            <div class="feature-pill-list">
+              <span class="feature-pill">PostgreSQL Row-Level Security</span>
+              <span class="feature-pill">Role-Based Access Control (RBAC)</span>
+              <span class="feature-pill">API &amp; Performance Testing (Postman)</span>
+              <span class="feature-pill">User Acceptance Testing (UAT)</span>
+              <span class="feature-pill">Query Optimization (MySQL, Oracle)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prototyping Evolution -->
+  <section id="evolution" class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// PROTOTYPING EVOLUTION</span>
+        <h2 class="section-title">From Low-Fi Wireframes to Production Interactive Prototypes</h2>
+        <p class="section-desc">Demonstrating the transformation of annotated wireframe concepts into fully responsive, live interactive HTML/CSS prototypes hosted on GitHub Pages.</p>
+      </div>
+
+      <div class="project-detail-card" style="margin-bottom: 2rem;">
+        <div style="margin-bottom: 2rem; text-align: center;">
+          <img src="assets/wireframe-balsamiq-vs-hifi.svg" alt="Prototyping Evolution Visual" class="modal-trigger" data-img="assets/wireframe-balsamiq-vs-hifi.svg" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); cursor: pointer;">
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">🔍 Click visual to view expanded high-resolution comparison diagram</p>
+        </div>
+
+        <!-- Hi-Fi Prototype Showcase Gallery -->
+        <div style="border-top: 1px solid var(--border-light); padding-top: 2rem;">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <h4 style="color: var(--brand-primary); font-size: 1.2rem; margin-bottom: 0.5rem;">📸 Hi-Fi Prototype — Live Application Showcase</h4>
+            <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 700px; margin: 0 auto;">Berikut adalah capture dari aplikasi Hi-Fi Prototype yang dibuat selama bekerja di PLN Icon Plus sebagai IT Business Analyst. Prototype ini mencakup modul ERS, NewPST, dan Power Inspect.</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <!-- Screenshot 1: Hi-Fi Portal Home -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
+              <img src="assets/hifi-portal-home.png" alt="Hi-Fi Portal Home — Enterprise Module Selector" class="modal-trigger" data-img="assets/hifi-portal-home.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+              <div style="padding: 0.85rem 1rem;">
+                <h5 style="font-size: 0.92rem; margin-bottom: 0.25rem;">HiFi Portal — Module Selector</h5>
+                <p style="font-size: 0.78rem; color: var(--text-muted);">Portal utama Hi-Fi dengan sidebar navigasi 3 modul enterprise: HiFi ERS, HiFi NewPST, dan HiFi Power Inspect.</p>
+              </div>
+            </div>
+
+            <!-- Screenshot 2: Dashboard ERS -->
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
+              <img src="assets/hifi-dashboard-ers.png" alt="Hi-Fi Dashboard ERS — Geospatial Map & KPI Metrics" class="modal-trigger" data-img="assets/hifi-dashboard-ers.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+              <div style="padding: 0.85rem 1rem;">
+                <h5 style="font-size: 0.92rem; margin-bottom: 0.25rem;">Dashboard ERS — Geospatial & KPI</h5>
+                <p style="font-size: 0.78rem; color: var(--text-muted);">Dashboard ketersediaan ERS dengan peta Leaflet, KPI metrics (Total ERS Terpasang), dan chart analitik per unit.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center;">
+            <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success" style="font-size: 0.95rem; padding: 0.75rem 1.8rem;">🚀 Explore the Full Live Application ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Showcase -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// ENTERPRISE CASE STUDIES</span>
+        <h2 class="section-title">Featured Enterprise Systems at PLN Icon Plus</h2>
+        <p class="section-desc">Detailed breakdown of key systems analyzed and delivered for power systems, substation maintenance, and transmission logistics.</p>
+      </div>
+
+      <!-- Project Tabs Selector -->
+      <div class="project-tabs-nav">
+        <button class="tab-btn active" data-tab="power-inspect">
+          ⚡ 1. Power Inspect (PM/AHI)
+        </button>
+        <button class="tab-btn" data-tab="new-pst">
+          🌐 2. NewPST &amp; Hi-Fi Transmisi
+        </button>
+        <button class="tab-btn" data-tab="powerswift">
+          🏗️ 3. PowerSwift ERS (Emergency Towers)
+        </button>
+      </div>
+
+      <!-- Tab Content 1: Power Inspect -->
+      <div id="power-inspect" class="tab-content active">
+        <div class="project-detail-card">
+          <div class="project-header-row">
+            <div class="project-header-info">
+              <h3>Power Inspect — Substation PM/TBM/CBM &amp; AHI Scoring</h3>
+              <p>Sistem Manajemen Pemeliharaan Prefentif Gardu Induk &amp; Penilaian Kesehatan Aset Trafo Terpadu.</p>
+            </div>
+            <span class="mono-tag">SUBSTATION ASSET MANAGEMENT</span>
+          </div>
+
+          <!-- Overall Key Metrics Grid -->
+          <div class="project-metrics-grid">
+            <div class="metric-card">
+              <div class="val">11+</div>
+              <div class="lbl">Legacy Data Sources</div>
+            </div>
+            <div class="metric-card">
+              <div class="val">105 VU</div>
+              <div class="lbl">Peak Load Benchmark</div>
+            </div>
+            <div class="metric-card">
+              <div class="val">672ms</div>
+              <div class="lbl">Avg Response Time</div>
+            </div>
+            <div class="metric-card">
+              <div class="val">0.00%</div>
+              <div class="lbl">Stress Test Error Rate</div>
+            </div>
+          </div>
+
+          <!-- SECTION 1: ANALISIS SISTEM & BISNIS (Business Analysis Scope) -->
+          <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 14px; padding: 1.75rem; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light);">
+              <div>
+                <span class="mono-tag" style="background: var(--brand-light); color: var(--brand-primary); font-size: 0.75rem; margin-bottom: 0.35rem;">BAGIAN 1 // ANALISIS SISTEM &amp; BISNIS</span>
+                <h4 style="font-size: 1.35rem; color: var(--text-main);">📋 Perancangan Arsitektur Kebutuhan Bisnis &amp; Logic Formulasi AHI</h4>
+              </div>
+              <span style="font-size: 0.82rem; background: var(--bg-surface); padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid var(--border-medium); color: var(--text-muted); font-weight: 600;">Business Analyst Scope</span>
+            </div>
+
+            <div class="project-body-grid">
+              <div class="deliverable-box">
+                <h5 style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--brand-primary);">Scope Analisis Kebutuhan &amp; Logika Bisnis:</h5>
+                <ul class="deliverable-list">
+                  <li><strong>Formulasi Asset Health Index (AHI):</strong> Membedah &amp; memformulasikan algoritma perhitungan skor kesehatan trafo berdasarkan kombinasi data DGA Gas Analysis, Thermovision, Dielectric Breakdown Oil, dan inspeksi visual harian.</li>
+                  <li><strong>Konsolidasi 11+ Data Source Legacy:</strong> Menggabungkan data historis inspeksi gardu induk yang terfragmentasi di 11 database legacy menjadi satu arsitektur skema data yang terstandarisasi.</li>
+                  <li><strong>Arsitektur Row-Level Security (RLS):</strong> Menyusun aturan tata kelola keamanan data terisolasi berdasarkan hierarki wilayah kerja (UP3 / ULTG / UID) sehingga user unit hanya dapat mengelola aset wilayahnya sendiri.</li>
+                  <li><strong>Requirement Documentation (BRS &amp; SDD):</strong> Mengarang dokumen spesifikasi teknis lengkap yang menjembatani komunikasi antara Business Process Owner (BPO) dan tim developer/QA.</li>
+                </ul>
+              </div>
+
+              <div class="project-diagram-box">
+                <h5 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">Database ERD &amp; RLS Territorial Architecture:</h5>
+                <img src="assets/power-inspect-erd.svg" alt="Power Inspect ERD & RLS Schematic" class="modal-trigger" data-img="assets/power-inspect-erd.svg">
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">🔍 Klik diagram untuk melihat skema ERD &amp; Kebijakan RLS secara lengkap</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 2: KEMAMPUAN TEKNIS & PERFORMANCE ENGINEERING -->
+          <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 14px; padding: 1.75rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light);">
+              <div>
+                <span class="mono-tag" style="background: var(--emerald-light); color: var(--emerald-primary); border-color: #A7F3D0; font-size: 0.75rem; margin-bottom: 0.35rem;">BAGIAN 2 // KEMAMPUAN TEKNIS &amp; PERFORMANCE TESTING</span>
+                <h4 style="font-size: 1.35rem; color: var(--text-main);">⚡ Pengujian Performa (Stress Testing), Metric Benchmark, &amp; Tuning Query</h4>
+              </div>
+              <span style="font-size: 0.82rem; background: var(--bg-surface); padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid #A7F3D0; color: var(--emerald-primary); font-weight: 600;">Technical Engineering Scope</span>
+            </div>
+
+            <div class="project-body-grid" style="margin-bottom: 1.5rem;">
+              <div class="deliverable-box">
+                <h5 style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--emerald-primary);">Scope Pengujian Teknis &amp; Rekayasa Performa:</h5>
+                <ul class="deliverable-list">
+                  <li><strong>Simulasi Peak Concurrency Load Testing:</strong> Merancang &amp; mengeksekusi skenario stress test menggunakan beban 105 Virtual Users (VU) secara simultan dengan total 88.200 request untuk menguji batas ketahanan server.</li>
+                  <li><strong>Pencapaian 0.00% Stress Error Rate:</strong> Memastikan keandalan backend API tetap stabil dengan tingkat kegagalan 0.00% pada throughput puncak 147.2 req/sec selama pengujian intensif.</li>
+                  <li><strong>Benchmarking &amp; Tuning Latensi Query:</strong> Mengoptimalkan performa query SQL kompleks dengan indexing pada filter territorial RLS (`unit_id`, `ultg_code`), menekan rata-rata waktu respon hingga 672ms (P95: 1.12s).</li>
+                  <li><strong>API Validation &amp; Quality Assurance:</strong> Menjalankan otomatisasi pengujian API (Postman) dan verifikasi skenario positif/negatif sebelum implementasi di lingkungan staging &amp; produksi.</li>
+                </ul>
+              </div>
+
+              <!-- Load Testing Benchmark Metric Badges & Highlight -->
+              <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
+                <h5 style="margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-main);">📊 Metric Summary Stress Test (105 VU):</h5>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+                  <div style="background: var(--bg-subtle); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-light);">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">TOTAL REQUESTS</span>
+                    <strong style="font-size: 1.2rem; color: var(--brand-primary); font-family: var(--font-mono);">88,200</strong>
+                  </div>
+                  <div style="background: var(--bg-subtle); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-light);">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">THROUGHPUT</span>
+                    <strong style="font-size: 1.2rem; color: var(--emerald-primary); font-family: var(--font-mono);">147.2 req/s</strong>
+                  </div>
+                  <div style="background: var(--bg-subtle); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-light);">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">P95 RESPONSE TIME</span>
+                    <strong style="font-size: 1.2rem; color: var(--amber-primary); font-family: var(--font-mono);">1,120 ms</strong>
+                  </div>
+                  <div style="background: var(--bg-subtle); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-light);">
+                    <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">SYSTEM AVAILABILITY</span>
+                    <strong style="font-size: 1.2rem; color: var(--emerald-primary); font-family: var(--font-mono);">99.99%</strong>
+                  </div>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-muted); font-style: italic; line-height: 1.4;">*Pengujian dilakukan secara bertahap (Ramp-up -> Peak Stress -> Ramp-down) untuk menguji efisiensi alokasi memori dan koneksi pool database PostgreSQL.*</p>
+              </div>
+            </div>
+
+            <!-- Full Width Stress Metric Chart Image -->
+            <div>
+              <h5 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--text-main);">📈 Grafik Benchmark Concurrency vs Latensi Respon (Load Test):</h5>
+              <img src="assets/load-test-chart.svg" alt="Load Test Chart" class="modal-trigger" data-img="assets/load-test-chart.svg" style="width: 100%; border-radius: 8px; cursor: pointer; border: 1px solid var(--border-light);">
+              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">🔍 Klik grafik untuk membuka tampilan resolusi tinggi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: NewPST & Hi-Fi Transmisi -->
+      <div id="new-pst" class="tab-content">
+        <div class="project-detail-card">
+          <div class="project-header-row">
+            <div class="project-header-info">
+              <h3>NewPST &amp; Hi-Fi Transmisi — Asset Management &amp; Mapping</h3>
+              <p>Geospatial tracking, transmission line maintenance history, and live interactive HTML prototype.</p>
+            </div>
+            <div>
+              <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">🚀 Launch Prototype ↗</a>
+            </div>
+          </div>
+
+          <div class="project-metrics-grid">
+            <div class="metric-card">
+              <div class="val">100%</div>
+              <div class="lbl">Traceability Rate</div>
+            </div>
+            <div class="metric-card">
+              <div class="val">BRS/SDD</div>
+              <div class="lbl">Complete Documentation</div>
+            </div>
+            <div class="metric-card">
+              <div class="val">Multi-Tier</div>
+              <div class="lbl">Approval Hierarchy</div>
+            </div>
+            <div class="metric-card">
+              <div class="val">Live Hi-Fi</div>
+              <div class="lbl">GitHub Deployed App</div>
+            </div>
+          </div>
+
+          <div class="project-body-grid">
+            <div class="deliverable-box">
+              <h4>Analyst Deliverables &amp; Technical Scope:</h4>
+              <ul class="deliverable-list">
+                <li>Authored Business Requirements Specification (BRS) &amp; Software Design Document (SDD).</li>
+                <li>Mapped transmission tower location coordinates with geospatial regional partitioning.</li>
+                <li>Designed multi-tier approval workflow for transmission line replacement schedules.</li>
+                <li>Created the full live Hi-Fi Transmisi prototype web application.</li>
+              </ul>
+              <div style="margin-top: 1.25rem;">
+                <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%;">🌐 Open Live Transmisi Prototype App ↗</a>
+              </div>
+            </div>
+            <div class="project-diagram-box">
+              <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">System Integration &amp; Workflow Overview:</h4>
+              <img src="assets/newpst-architecture.svg" alt="NewPST System Architecture" class="modal-trigger" data-img="assets/newpst-architecture.svg">
+              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Click diagram to view full high-res architecture modal</p>
+            </div>
+          </div>
+
+          <!-- Hi-Fi Prototype Visual Showcase -->
+          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light);">
+            <h4 style="margin-bottom: 1rem; font-size: 1.05rem; color: var(--text-main);">📸 Contoh Tampilan Hi-Fi Prototype yang Dikerjakan:</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+              <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden;">
+                <img src="assets/hifi-portal-home.png" alt="Hi-Fi Portal Home" class="modal-trigger" data-img="assets/hifi-portal-home.png" style="width: 100%; display: block; cursor: pointer;">
+                <p style="font-size: 0.78rem; color: var(--text-muted); padding: 0.6rem 0.85rem; text-align: center;">Portal Home — 3 Modul Enterprise</p>
+              </div>
+              <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden;">
+                <img src="assets/hifi-dashboard-ers.png" alt="Dashboard ERS" class="modal-trigger" data-img="assets/hifi-dashboard-ers.png" style="width: 100%; display: block; cursor: pointer;">
+                <p style="font-size: 0.78rem; color: var(--text-muted); padding: 0.6rem 0.85rem; text-align: center;">Dashboard ERS — Map & KPI Metrics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 3: PowerSwift ERS -->
+      <div id="powerswift" class="tab-content">
+        <div class="project-detail-card">
+          <div class="project-header-row">
+            <div class="project-header-info">
+              <h3>PowerSwift ERS — Emergency Tower Mobilization &amp; Stock Opname</h3>
+              <p>Dynamic field logistics, rapid tower deployment, and real-time inventory control system.</p>
+            </div>
+            <span class="mono-tag">EMERGENCY RESPONSE</span>
+          </div>
+
+          <div class="project-metrics-grid">
+            <div class="metric-card">
+              <div class="val">&lt; 450ms</div>
+              <div class="lbl">End-to-End Latency</div>
+            </div>
+            <div class="metric-card">
+              <div class="val">Mobile Opname</div>
+              <div class="lbl">Barcode &amp; QR Tracking</div>
+            </div>
+            <div class="metric-card">
+              <div class="val">Multi-Approve</div>
+              <div class="lbl">Executive Dispatch</div>
+            </div>
+            <div class="metric-card">
+              <div class="val">Sequence Diagram</div>
+              <div class="lbl">Reverse Engineered</div>
+            </div>
+          </div>
+
+          <div class="project-body-grid">
+            <div class="deliverable-box">
+              <h4>System Features &amp; Reverse Engineering:</h4>
+              <ul class="deliverable-list">
+                <li>Reverse-engineered legacy manual tower dispatch routines into standardized UML sequence diagrams.</li>
+                <li>Designed mobile stock opname UI wireframes with real-time barcode/QR inventory scanning.</li>
+                <li>Implemented BPO stakeholder requirements into rapid emergency incident ticketing flows.</li>
+                <li>Optimized material reservation logic preventing stock duplication during emergency events.</li>
+              </ul>
+            </div>
+            <div class="project-diagram-box">
+              <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">Emergency Mobilization Sequence Diagram:</h4>
+              <img src="assets/powerswift-sequence.svg" alt="PowerSwift Sequence Diagram" class="modal-trigger" data-img="assets/powerswift-sequence.svg">
+              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Click diagram to view full high-res sequence modal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Portfolio Impact Summary -->
+  <section id="impact" class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// ENTERPRISE MATRIX SUMMARY</span>
+        <h2 class="section-title">Portfolio Impact &amp; Systems Comparison</h2>
+        <p class="section-desc">Unified matrix summarizing strategic objectives, security level, key deliverables, and business value impact across all projects.</p>
+      </div>
+
+      <div class="impact-table-wrapper">
+        <table class="impact-table">
+          <thead>
+            <tr>
+              <th>SYSTEM / PROJECT</th>
+              <th>PRIMARY OBJECTIVE</th>
+              <th>SECURITY &amp; GOVERNANCE</th>
+              <th>KEY ANALYST ARTIFACTS</th>
+              <th>BUSINESS VALUE IMPACT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="project-name-cell">⚡ Power Inspect</td>
+              <td>Preventive Substation Maintenance &amp; AHI Scoring</td>
+              <td>Row-Level Security (RLS UP3/ULTG) &amp; RBAC</td>
+              <td>ERD, AHI Matrix, Load Testing Suite (105 VU)</td>
+              <td>Consolidated 11+ legacy sources into 1 platform with 0% stress error rate.</td>
+            </tr>
+            <tr>
+              <td class="project-name-cell">🌐 NewPST / Hi-Fi Transmisi</td>
+              <td>Transmission Asset Management &amp; Geospatial Tracking</td>
+              <td>Multi-Tier Approval Hierarchy &amp; Audit Logs</td>
+              <td>BRS, SDD, Use Cases, Live Interactive Prototype</td>
+              <td>Achieved 100% asset traceability &amp; interactive prototype validation.</td>
+            </tr>
+            <tr>
+              <td class="project-name-cell">🏗️ PowerSwift ERS</td>
+              <td>Emergency Tower Mobilization &amp; Stock Opname</td>
+              <td>Digital Signature Verification &amp; QR Manifest</td>
+              <td>UML Sequence Diagrams, Mobile Opname Wireframes</td>
+              <td>Reduced mobilization latency to &lt;450ms for emergency field events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Call to Action -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-card">
+        <span class="mono-tag" style="margin-bottom: 1.25rem;">GET IN TOUCH</span>
+        <h2>Muhammad Ardan Al Farezi Arifin</h2>
+        <p style="color: var(--brand-primary); font-weight: 600; margin-bottom: 0.5rem;">IT Business Analyst • PLN Icon Plus</p>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 2rem;">📍 Karawang, Jawa Barat, Indonesia | ✉️ ardvarez@gmail.com | 📞 +62 812-2325-0074</p>
+        <div class="contact-links">
+          <a href="mailto:ardvarez@gmail.com" class="btn btn-primary">✉️ Email: ardvarez@gmail.com</a>
+          <a href="https://www.linkedin.com/in/ardvarez/" target="_blank" rel="noopener" class="btn btn-outline">💼 LinkedIn: /in/ardvarez</a>
+          <a href="https://wa.me/6281223250074" target="_blank" rel="noopener" class="btn btn-outline">💬 WhatsApp: +62 812-2325-0074</a>
+          <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success">🚀 Live Hi-Fi Transmisi ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Muhammad Ardan Al Farezi Arifin — IT Business Analyst &amp; System Solutions Specialist. Built with High-Fi HTML5/CSS3.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Dialog Viewer for High-Res Diagrams -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content-box">
+      <button class="modal-close-btn" id="modalClose">&times;</button>
+      <h3 id="modalTitle" style="color: var(--brand-primary); margin-bottom: 0.5rem;">Technical Artifact View</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">High-resolution vector architecture diagram view.</p>
+      <img id="modalImg" class="modal-img-view" src="" alt="Artifact Expanded View">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

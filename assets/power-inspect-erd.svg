@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#F8FAFC" rx="12"/>
+  <rect width="998" height="598" x="1" y="1" fill="none" stroke="#E2E8F0" stroke-width="2" rx="12"/>
+
+  <!-- Title Banner -->
+  <text x="40" y="45" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#0F172A">POWER INSPECT — DATABASE ERD SCHEMATIC ARCHITECTURE</text>
+  <text x="40" y="68" font-family="'Inter', sans-serif" font-size="12" fill="#64748B">Row-Level Security (UP3/ULTG Isolation) &amp; Multi-Schema Asset Hierarchy</text>
+
+  <!-- Table 1: Master Substation (gardu_induk) -->
+  <g transform="translate(50, 110)" filter="url(#card-shadow)">
+    <rect width="260" height="210" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="8"/>
+    <path d="M 0 0 L 260 0 L 260 38 L 0 38 Z" fill="#EFF6FF" rx="8"/>
+    <rect x="0" y="30" width="260" height="8" fill="#EFF6FF"/>
+    <text x="15" y="24" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#1D4ED8">tbl_gardu_induk (Master GI)</text>
+    <line x1="0" y1="38" x2="260" y2="38" stroke="#E2E8F0" stroke-width="1"/>
+    
+    <text x="15" y="58" font-family="'Fira Code', monospace" font-size="11.5" font-weight="600" fill="#059669">🔑 id_gi (PK) : INT</text>
+    <text x="15" y="82" font-family="'Fira Code', monospace" font-size="11.5" fill="#334155">  kode_gi : VARCHAR(20)</text>
+    <text x="15" y="106" font-family="'Fira Code', monospace" font-size="11.5" fill="#334155">  nama_gi : VARCHAR(100)</text>
+    <text x="15" y="130" font-family="'Fira Code', monospace" font-size="11.5" font-weight="600" fill="#2563EB">🔒 id_ultg (FK_RLS) : INT</text>
+    <text x="15" y="154" font-family="'Fira Code', monospace" font-size="11.5" font-weight="600" fill="#2563EB">🔒 id_up3 (FK_RLS) : INT</text>
+    <text x="15" y="178" font-family="'Fira Code', monospace" font-size="11.5" fill="#64748B">  kapasitas_mva : DECIMAL</text>
+  </g>
+
+  <!-- Table 2: Asset Transformer (trafo_bay) -->
+  <g transform="translate(370, 110)" filter="url(#card-shadow)">
+    <rect width="260" height="230" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="8"/>
+    <path d="M 0 0 L 260 0 L 260 38 L 0 38 Z" fill="#F0FDFA" rx="8"/>
+    <rect x="0" y="30" width="260" height="8" fill="#F0FDFA"/>
+    <text x="15" y="24" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#0D9488">tbl_asset_trafo (Bay Trafo)</text>
+    <line x1="0" y1="38" x2="260" y2="38" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="15" y="58" font-family="'Fira Code', monospace" font-size="11.5" font-weight="600" fill="#059669">🔑 id_trafo (PK) : INT</text>
+    <text x="15" y="82" font-family="'Fira Code', monospace" font-size="11.5" font-weight="600" fill="#D97706">🔗 id_gi (FK) : INT</text>
+    <text x="15" y="106" font-family="'Fira Code', monospace" font-size="11.5" fill="#334155">  serial_number : VARCHAR(50)</text>
+    <text x="15" y="130" font-family="'Fira Code', monospace" font-size="11.5" fill="#334155">  merk_mfg : VARCHAR(50)</text>
+    <text x="15" y="154" font-family="'Fira Code', monospace" font-size="11.5" fill="#334155">  tahun_operasi : INT</text>
+    <text x="15" y="178" font-family="'Fira Code', monospace" font-size="11.5" font-weight="600" fill="#DC2626">  ahi_score : DECIMAL(4,2)</text>
+    <text x="15" y="202" font-family="'Fira Code', monospace" font-size="11.5" fill="#059669">  status_kesehatan : VARCHAR</text>
+  </g>
+
+  <!-- Table 3: Inspection Log (inspeksi_cbm) -->
+  <g transform="translate(690, 110)" filter="url(#card-shadow)">
+    <rect width="260" height="250" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" rx="8"/>
+    <path d="M 0 0 L 260 0 L 260 38 L 0 38 Z" fill="#F1F5F9" rx="8"/>
+    <rect x="0" y="30" width="260" height="8" fill="#F1F5F9"/>
+    <text x="15" y="24" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#334155">tbl_inspeksi_cbm (CBM Log)</text>
+    <line x1="0" y1="38" x2="260" y2="38" stroke="#E2E8F0" stroke-width="1"/>
+
+    <text x="15" y="58" font-family="'Fira Code', monospace" font-size="11.5" font-weight="600" fill="#059669">🔑 id_inspeksi (PK) : INT</text>
+    <text x="15" y="82" font-family="'Fira Code', monospace" font-size="11.5" font-weight="600" fill="#D97706">🔗 id_trafo (FK) : INT</text>
+    <text x="15" y="106" font-family="'Fira Code', monospace" font-size="11.5" fill="#334155">  tgl_inspeksi : TIMESTAMP</text>
+    <text x="15" y="130" font-family="'Fira Code', monospace" font-size="11.5" fill="#334155">  temp_thermovision : NUM</text>
+    <text x="15" y="154" font-family="'Fira Code', monospace" font-size="11.5" fill="#334155">  dga_ppm_gas : JSONB</text>
+    <text x="15" y="178" font-family="'Fira Code', monospace" font-size="11.5" fill="#334155">  oil_dielectric : DECIMAL</text>
+    <text x="15" y="202" font-family="'Fira Code', monospace" font-size="11.5" font-weight="600" fill="#D97706">🔗 inspector_user_id : INT</text>
+    <text x="15" y="226" font-family="'Fira Code', monospace" font-size="11.5" fill="#2563EB">  verified_spv : BOOLEAN</text>
+  </g>
+
+  <!-- Section 4: Row Level Security Policy Scope -->
+  <g transform="translate(50, 390)" filter="url(#card-shadow)">
+    <rect width="580" height="170" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" rx="8"/>
+    <text x="15" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#475569">🛡️ ROW LEVEL SECURITY (RLS) POLICIES &amp; RBAC CONTEXT</text>
+    <rect x="15" y="45" width="550" height="105" fill="#0F172A" rx="6"/>
+    <text x="25" y="68" font-family="'Fira Code', monospace" font-size="11" fill="#34D399">CREATE POLICY gi_territorial_isolation ON tbl_gardu_induk</text>
+    <text x="25" y="88" font-family="'Fira Code', monospace" font-size="11" fill="#E2E8F0">  FOR SELECT USING (</text>
+    <text x="45" y="108" font-family="'Fira Code', monospace" font-size="11" fill="#FDE047">    id_ultg = current_setting('app.current_user_ultg')::INT</text>
+    <text x="45" y="128" font-family="'Fira Code', monospace" font-size="11" fill="#FDE047">    OR current_setting('app.user_role') = 'SUPER_ADMIN'</text>
+    <text x="25" y="142" font-family="'Fira Code', monospace" font-size="11" fill="#E2E8F0">  );</text>
+  </g>
+
+  <!-- Section 5: AHI Score Rule engine -->
+  <g transform="translate(650, 390)" filter="url(#card-shadow)">
+    <rect width="300" height="170" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" rx="8"/>
+    <text x="15" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#0F172A">⚡ AHI Scoring Engine Matrix</text>
+    <text x="15" y="60" font-family="'Inter', sans-serif" font-size="11.5" fill="#475569">• Weight Thermovision (30%)</text>
+    <text x="15" y="80" font-family="'Inter', sans-serif" font-size="11.5" fill="#475569">• Weight DGA Gas Analysis (40%)</text>
+    <text x="15" y="100" font-family="'Inter', sans-serif" font-size="11.5" fill="#475569">• Weight Oil Breakdown Voltage (30%)</text>
+    <rect x="15" y="115" width="270" height="35" fill="#F8FAFC" stroke="#E2E8F0" rx="4"/>
+    <text x="25" y="137" font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#1E293B">AHI = (0.3*T) + (0.4*DGA) + (0.3*OBV)</text>
+  </g>
+
+  <!-- Connectors -->
+  <path d="M 310 180 L 370 180" stroke="#2563EB" stroke-width="2" stroke-dasharray="4,4"/>
+  <circle cx="310" cy="180" r="4" fill="#2563EB"/>
+  <polygon points="365,175 375,180 365,185" fill="#2563EB"/>
+
+  <path d="M 630 180 L 690 180" stroke="#0D9488" stroke-width="2" stroke-dasharray="4,4"/>
+  <circle cx="630" cy="180" r="4" fill="#0D9488"/>
+  <polygon points="685,175 695,180 685,185" fill="#0D9488"/>
+
+</svg>

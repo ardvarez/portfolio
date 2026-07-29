@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 550" width="100%" height="100%">
+  <rect width="1000" height="550" fill="#F8FAFC" rx="12"/>
+  <rect width="998" height="548" x="1" y="1" fill="none" stroke="#E2E8F0" stroke-width="2" rx="12"/>
+
+  <!-- Title -->
+  <text x="40" y="45" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#0F172A">PROTOTYPING EVOLUTION: LOW-FI BALSAMIQ TO HIGH-FI HTML/CSS</text>
+  <text x="40" y="68" font-family="'Inter', sans-serif" font-size="12" fill="#64748B">Bridging Business Requirements with Production-Ready Interactive Prototypes</text>
+
+  <!-- Left Side: Balsamiq Wireframe (Sketch aesthetic) -->
+  <g transform="translate(40, 100)">
+    <rect width="430" height="380" fill="#FFFFFF" stroke="#64748B" stroke-width="2" rx="8"/>
+    <!-- Wireframe Header -->
+    <rect x="0" y="0" width="430" height="40" fill="#F1F5F9" rx="8"/>
+    <circle cx="20" cy="20" r="5" fill="#94A3B8"/>
+    <circle cx="35" cy="20" r="5" fill="#94A3B8"/>
+    <circle cx="50" cy="20" r="5" fill="#94A3B8"/>
+    <text x="215" y="25" text-anchor="middle" font-family="'Comic Sans MS', 'Chalkboard', cursive" font-size="13" font-weight="bold" fill="#334155">[LOW-FI] Balsamiq Mockup - Filter &amp; Asset Grid</text>
+
+    <!-- Sketchy UI Elements -->
+    <rect x="20" y="60" width="120" height="30" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="30" y="80" font-family="'Comic Sans MS', cursive" font-size="11" fill="#334155">Select GI... v</text>
+
+    <rect x="150" y="60" width="120" height="30" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="3,2"/>
+    <text x="160" y="80" font-family="'Comic Sans MS', cursive" font-size="11" fill="#334155">Status AHI... v</text>
+
+    <rect x="280" y="60" width="130" height="30" fill="#CBD5E1" stroke="#334155" stroke-width="2"/>
+    <text x="345" y="80" text-anchor="middle" font-family="'Comic Sans MS', cursive" font-size="12" font-weight="bold" fill="#0F172A">Filter Data</text>
+
+    <!-- Callout Annotation 1 -->
+    <path d="M 120 75 Q 160 30 200 40" stroke="#DC2626" stroke-width="2" fill="none" stroke-dasharray="4,2"/>
+    <rect x="190" y="15" width="220" height="35" fill="#FEF2F2" stroke="#DC2626" rx="4"/>
+    <text x="200" y="30" font-family="'Comic Sans MS', cursive" font-size="10" font-weight="bold" fill="#991B1B">📌 Note #1: RLS filters by User ULTG!</text>
+
+    <!-- Mock Table -->
+    <rect x="20" y="110" width="390" height="240" fill="#FFFFFF" stroke="#475569" stroke-width="2"/>
+    <line x1="20" y1="140" x2="410" y2="140" stroke="#475569" stroke-width="2"/>
+    <text x="35" y="130" font-family="'Comic Sans MS', cursive" font-size="11" font-weight="bold" fill="#0F172A">ID Trafo</text>
+    <text x="120" y="130" font-family="'Comic Sans MS', cursive" font-size="11" font-weight="bold" fill="#0F172A">Gardu Induk</text>
+    <text x="240" y="130" font-family="'Comic Sans MS', cursive" font-size="11" font-weight="bold" fill="#0F172A">AHI Score</text>
+    <text x="340" y="130" font-family="'Comic Sans MS', cursive" font-size="11" font-weight="bold" fill="#0F172A">Action</text>
+
+    <!-- Rows -->
+    <text x="35" y="165" font-family="'Comic Sans MS', cursive" font-size="11" fill="#4B5563">TRF-019</text>
+    <text x="120" y="165" font-family="'Comic Sans MS', cursive" font-size="11" fill="#4B5563">GI Cawang</text>
+    <text x="240" y="165" font-family="'Comic Sans MS', cursive" font-size="11" fill="#DC2626">2.1 (Critical)</text>
+    <rect x="340" y="152" width="55" height="18" fill="#E2E8F0" stroke="#475569"/>
+    <text x="345" y="165" font-family="'Comic Sans MS', cursive" font-size="10" fill="#0F172A">Inspect</text>
+
+    <text x="35" y="195" font-family="'Comic Sans MS', cursive" font-size="11" fill="#4B5563">TRF-042</text>
+    <text x="120" y="195" font-family="'Comic Sans MS', cursive" font-size="11" fill="#4B5563">GI Gandul</text>
+    <text x="240" y="195" font-family="'Comic Sans MS', cursive" font-size="11" fill="#16A34A">4.8 (Good)</text>
+    <rect x="340" y="182" width="55" height="18" fill="#E2E8F0" stroke="#475569"/>
+    <text x="345" y="195" font-family="'Comic Sans MS', cursive" font-size="10" fill="#0F172A">Inspect</text>
+  </g>
+
+  <!-- Arrow Transition -->
+  <g transform="translate(480, 260)">
+    <path d="M 0 0 L 35 0" stroke="#2563EB" stroke-width="4"/>
+    <polygon points="30,-8 45,0 30,8" fill="#2563EB"/>
+    <text x="20" y="-15" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="bold" fill="#2563EB">EVOLVE</text>
+  </g>
+
+  <!-- Right Side: High-Fi Interactive HTML/CSS -->
+  <g transform="translate(530, 100)">
+    <rect width="430" height="380" fill="#FFFFFF" stroke="#2563EB" stroke-width="2" rx="8"/>
+    <!-- High-Fi Header -->
+    <rect x="0" y="0" width="430" height="40" fill="#EFF6FF" rx="8"/>
+    <circle cx="20" cy="20" r="5" fill="#EF4444"/>
+    <circle cx="35" cy="20" r="5" fill="#F59E0B"/>
+    <circle cx="50" cy="20" r="5" fill="#10B981"/>
+    <text x="215" y="25" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#1D4ED8">[HIGH-FI] Production Ready HTML/CSS Component</text>
+
+    <!-- Modern Controls -->
+    <rect x="20" y="60" width="120" height="30" fill="#F8FAFC" stroke="#CBD5E1" rx="4"/>
+    <text x="30" y="80" font-family="'Inter', sans-serif" font-size="11" fill="#334155">GI Cawang ▾</text>
+
+    <rect x="150" y="60" width="120" height="30" fill="#F8FAFC" stroke="#CBD5E1" rx="4"/>
+    <text x="160" y="80" font-family="'Inter', sans-serif" font-size="11" fill="#334155">All AHI Scores ▾</text>
+
+    <rect x="280" y="60" width="130" height="30" fill="#2563EB" rx="4"/>
+    <text x="345" y="80" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">Apply Filter</text>
+
+    <!-- High-Fi Table -->
+    <rect x="20" y="110" width="390" height="240" fill="#FFFFFF" stroke="#E2E8F0" rx="6"/>
+    <rect x="20" y="110" width="390" height="32" fill="#F1F5F9" rx="6"/>
+    <text x="35" y="130" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#334155">ID TRAFO</text>
+    <text x="120" y="130" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#334155">GARDU INDUK</text>
+    <text x="240" y="130" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#334155">AHI INDEX</text>
+    <text x="340" y="130" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#334155">ACTION</text>
+
+    <!-- High Fi Row 1 -->
+    <text x="35" y="165" font-family="'Fira Code', monospace" font-size="11" fill="#2563EB">TRF-019</text>
+    <text x="120" y="165" font-family="'Inter', sans-serif" font-size="11" fill="#334155">GI Cawang</text>
+    <rect x="240" y="152" width="75" height="20" fill="#FEE2E2" rx="10"/>
+    <text x="277" y="166" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="bold" fill="#991B1B">2.1 CRITICAL</text>
+    <rect x="340" y="152" width="60" height="20" fill="#2563EB" rx="4"/>
+    <text x="370" y="166" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">Inspect →</text>
+
+    <!-- High Fi Row 2 -->
+    <text x="35" y="195" font-family="'Fira Code', monospace" font-size="11" fill="#2563EB">TRF-042</text>
+    <text x="120" y="195" font-family="'Inter', sans-serif" font-size="11" fill="#334155">GI Gandul</text>
+    <rect x="240" y="182" width="75" height="20" fill="#D1FAE5" rx="10"/>
+    <text x="277" y="196" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="bold" fill="#065F46">4.8 GOOD</text>
+    <rect x="340" y="182" width="60" height="20" fill="#2563EB" rx="4"/>
+    <text x="370" y="196" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="bold" fill="#FFFFFF">Inspect →</text>
+  </g>
+</svg>
