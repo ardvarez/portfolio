@@ -1193,41 +1193,6 @@
               </div>
             </div>
 
-            <!-- Wireframe Showcase Gallery (Balsamiq UI Design) -->
-            <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 12px; padding: 1.25rem;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-                <h5 style="font-size: 0.98rem; color: var(--text-main);">✏️ Wireframe Blueprint Power Inspect (Balsamiq Mockup):</h5>
-                <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="Power Inspect Wireframe Document (PDF View)" style="font-size: 0.78rem; padding: 0.35rem 0.85rem;">📄 Open PDF View ↗</button>
-              </div>
-
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
-                <!-- Page 1 -->
-                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden;">
-                  <img src="assets/power-inspect-wf-page1.png" alt="Perencanaan Survey Gardu Induk — Wireframe Table View" class="modal-trigger" data-img="assets/power-inspect-wf-page1.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
-                  <div style="padding: 0.6rem 0.75rem;">
-                    <strong style="font-size: 0.82rem; display: block; color: var(--text-main);">1. Perencanaan Survey</strong>
-                    <span style="font-size: 0.72rem; color: var(--text-muted);">Tabel status survey &amp; tombol Tambah Perencanaan. Actor CRUD: Pusat, Regional, Unit Induk.</span>
-                  </div>
-                </div>
-
-                <!-- Page 2 -->
-                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden;">
-                  <img src="assets/power-inspect-wf-page2.png" alt="Tambah Data Perencanaan Survey — Form & Blasting Concept" class="modal-trigger" data-img="assets/power-inspect-wf-page2.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
-                  <div style="padding: 0.6rem 0.75rem;">
-                    <strong style="font-size: 0.82rem; display: block; color: var(--text-main);">2. Form Tambah Data</strong>
-                    <span style="font-size: 0.72rem; color: var(--text-muted);">Konsep blasting cakupan unit, multiselect Regional-GI, &amp; penyesuaian formulir survey.</span>
-                  </div>
-                </div>
-
-                <!-- Page 3 -->
-                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 8px; overflow: hidden;">
-                  <img src="assets/power-inspect-wf-page3.png" alt="Edit Data Perencanaan Survey — Filter Status Aset" class="modal-trigger" data-img="assets/power-inspect-wf-page3.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
-                  <div style="padding: 0.6rem 0.75rem;">
-                    <strong style="font-size: 0.82rem; display: block; color: var(--text-main);">3. Form Edit Data</strong>
-                    <span style="font-size: 0.72rem; color: var(--text-muted);">Edit cakupan survey, penyesuaian formulir, &amp; pemfilteran status aset trafo.</span>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -1318,6 +1283,7 @@
                 <li>Authored Business Requirements Specification (BRS) &amp; Software Design Document (SDD).</li>
                 <li>Mapped transmission tower location coordinates with geospatial regional partitioning.</li>
                 <li>Designed multi-tier approval workflow for transmission line replacement schedules.</li>
+                <li><strong>System Integration Architecture:</strong> Mengelola integrasi BE-to-BE API saat ini serta merancang roadmap transmisi data streaming berbasis Message Broker (Kafka).</li>
                 <li>Created the full live Hi-Fi Transmisi prototype web application.</li>
               </ul>
               <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
@@ -1329,6 +1295,23 @@
               <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">System Integration &amp; Workflow Overview:</h4>
               <img src="assets/newpst-architecture.svg" alt="NewPST System Architecture" class="modal-trigger" data-img="assets/newpst-architecture.svg">
               <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Click diagram to view full high-res architecture modal</p>
+            </div>
+          </div>
+
+          <!-- Integration Architecture Roadmap Card -->
+          <div style="margin-top: 1.5rem; padding: 1.25rem; background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 12px;">
+            <h4 style="font-size: 0.98rem; color: var(--brand-primary); margin-bottom: 0.75rem;">🔄 Arsitektur Integrasi System (BE-to-BE API ➔ Kafka Message Broker Streaming):</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div style="background: var(--bg-surface); padding: 0.9rem; border-radius: 8px; border: 1px solid var(--border-light);">
+                <span class="mono-tag" style="font-size: 0.7rem; margin-bottom: 0.35rem;">METODE SAAT INI // CURRENT STATE</span>
+                <strong style="font-size: 0.88rem; color: var(--text-main); display: block; margin-bottom: 0.3rem;">Synchronous BE-to-BE REST API</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">Pengiriman data antar sistem menggunakan integrasi Backend-to-Backend (BE to BE) secara langsung melalui REST API endpoint antara NewPST dan aplikasi pengguna.</p>
+              </div>
+              <div style="background: var(--brand-light); padding: 0.9rem; border-radius: 8px; border: 1px solid var(--brand-border);">
+                <span class="mono-tag" style="font-size: 0.7rem; margin-bottom: 0.35rem; background: var(--brand-primary); color: #fff;">NEXT-GEN ROADMAP // KAFKA MIDDLEWARE</span>
+                <strong style="font-size: 0.88rem; color: var(--brand-primary); display: block; margin-bottom: 0.3rem;">Asynchronous Event Data Streaming (Message Broker)</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">Transisi ke data streaming menggunakan <strong>Message Broker (Apache Kafka)</strong> sebagai wadah middleware. NewPST mengirim event data ke Kafka topic untuk menotifikasi aplikasi pengguna agar melakukan pull/sync data aset terbaru secara real-time.</p>
+              </div>
             </div>
           </div>
 
