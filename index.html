@@ -33,6 +33,12 @@
       --amber-light: #FFFBEB;
       --rose-primary: #DC2626;
 
+      /* Motorsport (F1) & Basketball Court Energetic Accents */
+      --racing-red: #E10600;         /* F1 Racing Red */
+      --racing-red-light: #FEF2F2;
+      --court-orange: #EA580C;       /* Basketball Court Orange */
+      --court-orange-light: #FFF7ED;
+
       /* Typography Colors */
       --text-main: #0F172A;      /* Slate 900 */
       --text-muted: #475569;     /* Slate 600 */
@@ -63,6 +69,146 @@
       padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
+    }
+
+    /* Animated Section Divider with Racing Telemetry Beam */
+    .section-divider {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(226, 232, 240, 0.5) 0%, rgba(37, 99, 235, 0.15) 30%, rgba(225, 6, 0, 0.2) 70%, rgba(234, 88, 12, 0.15) 100%);
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -30%;
+      width: 35%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, var(--brand-primary), var(--racing-red), var(--court-orange), transparent);
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.8), 0 0 8px rgba(225, 6, 0, 0.8);
+      animation: speedBeam 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes speedBeam {
+      0% {
+        left: -35%;
+      }
+      60% {
+        left: 105%;
+      }
+      100% {
+        left: 105%;
+      }
+    }
+
+    /* Prototyping Evolution 10-Second Carousel Styles */
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      flex: 0 0 100%;
+      box-sizing: border-box;
+      opacity: 0.3;
+      transition: opacity 0.5s ease;
+    }
+
+    .carousel-slide.active-slide {
+      opacity: 1;
+    }
+
+    .carousel-control-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      color: var(--text-main);
+      font-size: 1.4rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 15;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+    }
+
+    .carousel-control-btn:hover {
+      background: var(--brand-primary);
+      color: #fff;
+      border-color: var(--brand-primary);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-control-btn.prev {
+      left: 12px;
+    }
+
+    .carousel-control-btn.next {
+      right: 12px;
+    }
+
+    .carousel-footer-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 1.25rem;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--border-medium);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      background: var(--brand-primary);
+      width: 28px;
+      border-radius: 10px;
+    }
+
+    .carousel-timer-track {
+      width: 100%;
+      max-width: 320px;
+      height: 4px;
+      background: var(--border-light);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .carousel-timer-progress {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--brand-primary), var(--racing-red), var(--court-orange));
     }
 
     body {
@@ -887,8 +1033,8 @@
       </a>
       <ul class="nav-menu">
         <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#evolution" class="nav-link">Prototyping</a></li>
         <li><a href="#projects" class="nav-link">Featured Projects</a></li>
+        <li><a href="#evolution" class="nav-link">Prototyping</a></li>
         <li><a href="#impact" class="nav-link">Enterprise Impact</a></li>
         <li><a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="nav-link btn btn-success" style="color:#fff;">🚀 Live Hi-Fi Transmisi ↗</a></li>
         <li><a href="#contact" class="nav-link btn btn-primary">Get In Touch</a></li>
@@ -901,13 +1047,13 @@
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-badge">
-          <span class="pulse"></span> IT Business Analyst @ PLN Icon Plus
+          <span class="pulse" style="background: var(--racing-red);"></span> IT Business Analyst @ PLN Icon Plus • <span style="color: var(--court-orange); font-weight: 700;">🏎️ F1 Speed &amp; 🏀 Playbook Strategy</span>
         </div>
         <h1 class="hero-title">
-          Engineering Enterprise Solutions with <span class="gradient-text">Precision & Strategy</span>
+          Engineering Enterprise Solutions with <span class="gradient-text">F1 Speed &amp; Strategic Precision</span>
         </h1>
         <p class="hero-subtitle">
-          Over 3 years of experience driving digital transformation across PLN Icon Plus (Charge.in, GBMO Stream GAS, Power Inspect). Specializing in Substation &amp; Transmission Asset Management, BRD/BRS/SDD authoring, RLS security, and High-Fi Prototyping.
+          Over 3 years of experience combining F1-like execution speed &amp; basketball playbook agility across PLN Icon Plus (Charge.in, GBMO Stream GAS, Power Inspect). Specializing in Substation &amp; Transmission Asset Management, BRD/BRS/SDD authoring, RLS security, and High-Fi Prototyping.
         </p>
         <div class="hero-cta">
           <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success">🚀 Launch Live Hi-Fi Prototype ↗</a>
@@ -965,16 +1111,23 @@
             <span>Certifications</span>
             <span class="competency-level">SAP SCM100 & HR050</span>
           </div>
+          <div class="competency-item" style="border-top: 1px dashed var(--border-medium); margin-top: 0.4rem; padding-top: 0.4rem;">
+            <span style="font-weight: 600; color: var(--text-main);">🏎️ F1/Motorsport &amp; 🏀 Basketball Fan</span>
+            <span class="competency-level" style="background: var(--court-orange-light); color: var(--court-orange); border-color: #FDBA74; font-weight: 700;">HIGH PERFORMANCE</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Animated Speed Beam Section Divider -->
+  <div class="section-divider"></div>
+
   <!-- Executive Profile & Core Competencies -->
   <section id="about" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle">// LEADERSHIP &amp; ANALYSIS FRAMEWORK</span>
+        <span class="section-subtitle">// 🏀 STRATEGIC PLAYBOOK &amp; 🏎️ HIGH-SPEED EXECUTION</span>
         <h2 class="section-title">Bridging Business Needs &amp; Technical Execution</h2>
         <p class="section-desc">Combining structured Scrum frameworks, BPO stakeholder communication, and technical database security engineering across utility-scale applications.</p>
       </div>
@@ -1017,103 +1170,14 @@
     </div>
   </section>
 
-  <!-- Prototyping Evolution -->
-  <section id="evolution" class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-subtitle">// PROTOTYPING EVOLUTION</span>
-        <h2 class="section-title">From Low-Fi Wireframes to Production Interactive Prototypes</h2>
-        <p class="section-desc">Demonstrating the transformation of annotated wireframe concepts into fully responsive, live interactive HTML/CSS prototypes hosted on GitHub Pages.</p>
-      </div>
-
-      <div class="project-detail-card" style="margin-bottom: 2rem;">
-        <!-- Top Evolution Concept Architecture Diagram -->
-        <div style="margin-bottom: 2rem; text-align: center;">
-          <img src="assets/wireframe-balsamiq-vs-hifi.svg" alt="Prototyping Evolution Visual" class="modal-trigger" data-img="assets/wireframe-balsamiq-vs-hifi.svg" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); cursor: pointer;">
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.75rem;">🔍 Klik arsitektur untuk memperbesar visual perbandingan Low-Fi ke High-Fi</p>
-        </div>
-
-        <!-- FASE 1: LOW-FI BALSAMIQ WIREFRAMING -->
-        <div style="border-top: 1px solid var(--border-light); padding-top: 2rem; margin-bottom: 2.5rem;">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <span class="mono-tag" style="background: var(--amber-light); color: var(--amber-primary); border-color: #FDE68A; margin-bottom: 0.35rem;">FASE 1 // REQUIRMENT DISCOVERY &amp; IDEATION</span>
-              <h4 style="color: var(--text-main); font-size: 1.3rem;">✏️ Low-Fi Wireframing (Balsamiq Mockup Capability)</h4>
-              <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 750px; margin-top: 0.25rem;">Kemampuan merancang sketsa antarmuka awal bersama Business Process Owner (BPO), memetakan alur kerja sistem, hak akses CRUD (Pusat/Regional/Unit Induk), aturan multiselect unit, serta catatan bisnis teknis sebelum masuk ke tahap coding.</p>
-            </div>
-            <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="Wireframe Specification & System Blueprint Document (PDF)" style="font-size: 0.85rem;">📄 View Wireframe Spec (PDF View) ↗</button>
-          </div>
-
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
-            <!-- Wireframe 1 -->
-            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
-              <img src="assets/power-inspect-wf-page1.png" alt="Perencanaan Survey Gardu Induk — Wireframe Table View" class="modal-trigger" data-img="assets/power-inspect-wf-page1.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
-              <div style="padding: 0.85rem;">
-                <strong style="font-size: 0.88rem; display: block; color: var(--text-main); margin-bottom: 0.2rem;">1. Perencanaan Survey (Table View)</strong>
-                <p style="font-size: 0.76rem; color: var(--text-muted);">Tabel status survey &amp; tombol aksi. Catatan: Hak akses CRUD dibatasi untuk Pusat, Regional, &amp; Unit Induk.</p>
-              </div>
-            </div>
-
-            <!-- Wireframe 2 -->
-            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
-              <img src="assets/power-inspect-wf-page2.png" alt="Tambah Data Perencanaan Survey — Form & Blasting Concept" class="modal-trigger" data-img="assets/power-inspect-wf-page2.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
-              <div style="padding: 0.85rem;">
-                <strong style="font-size: 0.88rem; display: block; color: var(--text-main); margin-bottom: 0.2rem;">2. Form Tambah Data (Multiselect Rules)</strong>
-                <p style="font-size: 0.76rem; color: var(--text-muted);">Form survey berkonsep blasting cakupan unit, multiselect Regional-GI, &amp; dynamic form inspector.</p>
-              </div>
-            </div>
-
-            <!-- Wireframe 3 -->
-            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
-              <img src="assets/power-inspect-wf-page3.png" alt="Edit Data Perencanaan Survey — Filter Status Aset" class="modal-trigger" data-img="assets/power-inspect-wf-page3.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
-              <div style="padding: 0.85rem;">
-                <strong style="font-size: 0.88rem; display: block; color: var(--text-main); margin-bottom: 0.2rem;">3. Form Edit Data (Asset Status Filter)</strong>
-                <p style="font-size: 0.76rem; color: var(--text-muted);">Pengubahan spesifikasi survey, penyesuaian formulir inspeksi, &amp; status aset trafo (Operasi/Tidak Operasi).</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- FASE 2: HIGH-FI INTERACTIVE PROTOTYPING -->
-        <div style="border-top: 1px solid var(--border-light); padding-top: 2rem;">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <span class="mono-tag" style="background: var(--emerald-light); color: var(--emerald-primary); border-color: #A7F3D0; margin-bottom: 0.35rem;">FASE 2 // PRODUCTION READY HTML PROTOTYPE</span>
-              <h4 style="color: var(--text-main); font-size: 1.3rem;">🌐 High-Fi Prototyping (HTML/CSS Production Capability)</h4>
-              <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 750px; margin-top: 0.25rem;">Kemampuan menerjemahkan dokumen wireframe &amp; BRS menjadi aplikasi web prototype yang responsif, siap diuji dalam tahap UAT, dan terhubung dengan komponen UI nyata (Peta Leaflet, Chart, &amp; Sidebar Modul).</p>
-            </div>
-            <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success" style="font-size: 0.85rem;">🚀 Launch Live Hi-Fi Application ↗</a>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-            <!-- Screenshot 1: Hi-Fi Portal Home -->
-            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
-              <img src="assets/hifi-portal-home.png" alt="Hi-Fi Portal Home — Enterprise Module Selector" class="modal-trigger" data-img="assets/hifi-portal-home.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
-              <div style="padding: 0.85rem 1rem;">
-                <h5 style="font-size: 0.92rem; margin-bottom: 0.25rem;">HiFi Portal — Module Selector</h5>
-                <p style="font-size: 0.78rem; color: var(--text-muted);">Portal utama Hi-Fi dengan sidebar navigasi 3 modul enterprise: HiFi ERS, HiFi NewPST, dan HiFi Power Inspect.</p>
-              </div>
-            </div>
-
-            <!-- Screenshot 2: Dashboard ERS -->
-            <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
-              <img src="assets/hifi-dashboard-ers.png" alt="Hi-Fi Dashboard ERS — Geospatial Map & KPI Metrics" class="modal-trigger" data-img="assets/hifi-dashboard-ers.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
-              <div style="padding: 0.85rem 1rem;">
-                <h5 style="font-size: 0.92rem; margin-bottom: 0.25rem;">Dashboard ERS — Geospatial & KPI</h5>
-                <p style="font-size: 0.78rem; color: var(--text-muted);">Dashboard ketersediaan ERS dengan peta Leaflet, KPI metrics (Total ERS Terpasang), dan chart analitik per unit.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Animated Speed Beam Section Divider -->
+  <div class="section-divider"></div>
 
   <!-- Featured Projects Showcase -->
   <section id="projects" class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-subtitle">// ENTERPRISE CASE STUDIES</span>
+        <span class="section-subtitle">// 🏁 P1 ENTERPRISE CASE STUDIES &amp; TELEMETRY</span>
         <h2 class="section-title">Featured Enterprise Systems at PLN Icon Plus</h2>
         <p class="section-desc">Detailed breakdown of key systems analyzed and delivered for power systems, substation maintenance, and transmission logistics.</p>
       </div>
@@ -1149,16 +1213,16 @@
               <div class="lbl">Legacy Data Sources</div>
             </div>
             <div class="metric-card">
-              <div class="val">105 VU</div>
-              <div class="lbl">Peak Load Benchmark</div>
+              <div class="val">RLS Policy</div>
+              <div class="lbl">UP3/ULTG Territorial</div>
             </div>
             <div class="metric-card">
-              <div class="val">672ms</div>
-              <div class="lbl">Avg Response Time</div>
+              <div class="val">AHI Scoring</div>
+              <div class="lbl">4 Inspection Data Types</div>
             </div>
             <div class="metric-card">
-              <div class="val">0.00%</div>
-              <div class="lbl">Stress Test Error Rate</div>
+              <div class="val">BRS / SDD</div>
+              <div class="lbl">Complete Technical Spec</div>
             </div>
           </div>
 
@@ -1189,10 +1253,7 @@
               <div class="project-diagram-box">
                 <h5 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">Database ERD &amp; RLS Territorial Architecture:</h5>
                 <img src="assets/power-inspect-erd.svg" alt="Power Inspect ERD & RLS Schematic" class="modal-trigger" data-img="assets/power-inspect-erd.svg">
-                <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">🔍 Klik diagram untuk melihat skema ERD &amp; Kebijakan RLS secara lengkap</p>
               </div>
-            </div>
-
             </div>
           </div>
 
@@ -1252,11 +1313,13 @@
               <h3>NewPST &amp; Hi-Fi Transmisi — Asset Management &amp; Mapping</h3>
               <p>Geospatial tracking, transmission line maintenance history, and live interactive HTML prototype.</p>
             </div>
-            <div>
-              <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">🚀 Launch Prototype ↗</a>
+            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+              <span class="mono-tag">TRANSMISSION ASSET MANAGEMENT</span>
+              <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">🚀 Launch Prototype ↗</a>
             </div>
           </div>
 
+          <!-- Overall Key Metrics Grid -->
           <div class="project-metrics-grid">
             <div class="metric-card">
               <div class="val">100%</div>
@@ -1276,56 +1339,58 @@
             </div>
           </div>
 
-          <div class="project-body-grid">
-            <div class="deliverable-box">
-              <h4>Analyst Deliverables &amp; Technical Scope:</h4>
-              <ul class="deliverable-list">
-                <li>Authored Business Requirements Specification (BRS) &amp; Software Design Document (SDD).</li>
-                <li>Mapped transmission tower location coordinates with geospatial regional partitioning.</li>
-                <li>Designed multi-tier approval workflow for transmission line replacement schedules.</li>
-                <li><strong>System Integration Architecture:</strong> Mengelola integrasi BE-to-BE API saat ini serta merancang roadmap transmisi data streaming berbasis Message Broker (Kafka).</li>
-                <li>Created the full live Hi-Fi Transmisi prototype web application.</li>
-              </ul>
-              <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-primary" style="flex: 1;">🌐 Open Live Transmisi Prototype ↗</a>
-                <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="System Requirement Specification (BRS/SDD PDF Document)" style="flex: 1;">📄 View BRS / SDD (PDF) ↗</button>
+          <!-- SECTION 1: ANALISIS SISTEM & BISNIS (Business Analysis Scope) -->
+          <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 14px; padding: 1.75rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light); flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <span class="mono-tag" style="background: var(--brand-light); color: var(--brand-primary); font-size: 0.75rem; margin-bottom: 0.35rem;">BAGIAN 1 // ANALISIS SISTEM &amp; BISNIS</span>
+                <h4 style="font-size: 1.35rem; color: var(--text-main);">📋 Spesifikasi Kebutuhan Sistem &amp; Pemetaan Aset Transmisi</h4>
               </div>
+              <span style="font-size: 0.82rem; background: var(--bg-surface); padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid var(--border-medium); color: var(--text-muted); font-weight: 600;">Business Analyst Scope</span>
             </div>
-            <div class="project-diagram-box">
-              <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">System Integration &amp; Workflow Overview:</h4>
-              <img src="assets/newpst-architecture.svg" alt="NewPST System Architecture" class="modal-trigger" data-img="assets/newpst-architecture.svg">
-              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Click diagram to view full high-res architecture modal</p>
+
+            <div class="project-body-grid">
+              <div class="deliverable-box">
+                <h5 style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--brand-primary);">Scope Analisis Deliverables &amp; Fitur:</h5>
+                <ul class="deliverable-list">
+                  <li><strong>Dokumentasi Spesifikasi (BRS &amp; SDD):</strong> Mengarang Business Requirements Specification (BRS) &amp; Software Design Document (SDD) terstruktur.</li>
+                  <li><strong>Pemetaan Geospasial:</strong> Memetakan koordinat posisi menara/tower transmisi dengan penataan batas wilayah regional secara terstandarisasi.</li>
+                  <li><strong>Multi-Tier Approval Hierarchy:</strong> Merancang alur persetujuan bertingkat untuk jadwal penggantian konduktor &amp; inspeksi transmisi.</li>
+                  <li><strong>High-Fi Prototype Deployment:</strong> Membangun prototype aplikasi web Hi-Fi Transmisi interaktif penuh yang di-deploy di GitHub Pages.</li>
+                </ul>
+                <div style="margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                  <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-primary" style="flex: 1; font-size: 0.82rem;">🌐 Open Live Prototype ↗</a>
+                  <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="System Requirement Specification (BRS/SDD PDF Document)" style="flex: 1; font-size: 0.82rem;">📄 View BRS / SDD (PDF) ↗</button>
+                </div>
+              </div>
+
+              <div class="project-diagram-box">
+                <h5 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">System Integration &amp; Workflow Overview:</h5>
+                <img src="assets/newpst-architecture.svg" alt="NewPST System Architecture" class="modal-trigger" data-img="assets/newpst-architecture.svg">
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">🔍 Klik diagram untuk melihat skema arsitektur workflow secara lengkap</p>
+              </div>
             </div>
           </div>
 
-          <!-- Integration Architecture Roadmap Card -->
-          <div style="margin-top: 1.5rem; padding: 1.25rem; background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 12px;">
-            <h4 style="font-size: 0.98rem; color: var(--brand-primary); margin-bottom: 0.75rem;">🔄 Arsitektur Integrasi System (BE-to-BE API ➔ Kafka Message Broker Streaming):</h4>
+          <!-- SECTION 2: SYSTEM INTEGRATION ARCHITECTURE ROADMAP -->
+          <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 14px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border-light); flex-wrap: wrap; gap: 0.75rem;">
+              <div>
+                <span class="mono-tag" style="background: var(--brand-light); color: var(--brand-primary); font-size: 0.72rem; margin-bottom: 0.25rem;">INTEGRATION ARCHITECTURE // ROADMAP</span>
+                <h4 style="font-size: 1.15rem; color: var(--text-main);">🔄 Integrasi System: BE-to-BE REST API ➔ Kafka Message Broker Streaming</h4>
+              </div>
+            </div>
+
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div style="background: var(--bg-surface); padding: 0.9rem; border-radius: 8px; border: 1px solid var(--border-light);">
+              <div style="background: var(--bg-surface); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-light);">
                 <span class="mono-tag" style="font-size: 0.7rem; margin-bottom: 0.35rem;">METODE SAAT INI // CURRENT STATE</span>
                 <strong style="font-size: 0.88rem; color: var(--text-main); display: block; margin-bottom: 0.3rem;">Synchronous BE-to-BE REST API</strong>
                 <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">Pengiriman data antar sistem menggunakan integrasi Backend-to-Backend (BE to BE) secara langsung melalui REST API endpoint antara NewPST dan aplikasi pengguna.</p>
               </div>
-              <div style="background: var(--brand-light); padding: 0.9rem; border-radius: 8px; border: 1px solid var(--brand-border);">
+              <div style="background: var(--brand-light); padding: 1rem; border-radius: 10px; border: 1px solid var(--brand-border);">
                 <span class="mono-tag" style="font-size: 0.7rem; margin-bottom: 0.35rem; background: var(--brand-primary); color: #fff;">NEXT-GEN ROADMAP // KAFKA MIDDLEWARE</span>
                 <strong style="font-size: 0.88rem; color: var(--brand-primary); display: block; margin-bottom: 0.3rem;">Asynchronous Event Data Streaming (Message Broker)</strong>
                 <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">Transisi ke data streaming menggunakan <strong>Message Broker (Apache Kafka)</strong> sebagai wadah middleware. NewPST mengirim event data ke Kafka topic untuk menotifikasi aplikasi pengguna agar melakukan pull/sync data aset terbaru secara real-time.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hi-Fi Prototype Visual Showcase -->
-          <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light);">
-            <h4 style="margin-bottom: 1rem; font-size: 1.05rem; color: var(--text-main);">📸 Contoh Tampilan Hi-Fi Prototype yang Dikerjakan:</h4>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
-              <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden;">
-                <img src="assets/hifi-portal-home.png" alt="Hi-Fi Portal Home" class="modal-trigger" data-img="assets/hifi-portal-home.png" style="width: 100%; display: block; cursor: pointer;">
-                <p style="font-size: 0.78rem; color: var(--text-muted); padding: 0.6rem 0.85rem; text-align: center;">Portal Home — 3 Modul Enterprise</p>
-              </div>
-              <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden;">
-                <img src="assets/hifi-dashboard-ers.png" alt="Dashboard ERS" class="modal-trigger" data-img="assets/hifi-dashboard-ers.png" style="width: 100%; display: block; cursor: pointer;">
-                <p style="font-size: 0.78rem; color: var(--text-muted); padding: 0.6rem 0.85rem; text-align: center;">Dashboard ERS — Map & KPI Metrics</p>
               </div>
             </div>
           </div>
@@ -1340,9 +1405,10 @@
               <h3>PowerSwift ERS — Emergency Tower Mobilization &amp; Stock Opname</h3>
               <p>Dynamic field logistics, rapid tower deployment, and real-time inventory control system.</p>
             </div>
-            <span class="mono-tag">EMERGENCY RESPONSE</span>
+            <span class="mono-tag" style="background: var(--racing-red-light); color: var(--racing-red); border-color: #FCA5A5;">🏎️ RAPID PIT-STOP DISPATCH</span>
           </div>
 
+          <!-- Overall Key Metrics Grid -->
           <div class="project-metrics-grid">
             <div class="metric-card">
               <div class="val">&lt; 450ms</div>
@@ -1357,34 +1423,219 @@
               <div class="lbl">Executive Dispatch</div>
             </div>
             <div class="metric-card">
-              <div class="val">Sequence Diagram</div>
+              <div class="val">UML Sequence</div>
               <div class="lbl">Reverse Engineered</div>
             </div>
           </div>
 
-          <div class="project-body-grid">
-            <div class="deliverable-box">
-              <h4>System Features &amp; Reverse Engineering:</h4>
-              <ul class="deliverable-list">
-                <li>Reverse-engineered legacy manual tower dispatch routines into standardized UML sequence diagrams.</li>
-                <li>Designed mobile stock opname UI wireframes with real-time barcode/QR inventory scanning.</li>
-                <li>Implemented BPO stakeholder requirements into rapid emergency incident ticketing flows.</li>
-                <li>Optimized material reservation logic preventing stock duplication during emergency events.</li>
-              </ul>
-              <div style="margin-top: 1.25rem;">
-                <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/Mobile ERS - Stock Opname.pdf" data-title="Mobile ERS - Stock Opname Specification Document (PDF)" style="width: 100%;">📄 View Mobile ERS Spec (PDF View) ↗</button>
+          <!-- SECTION 1: ANALISIS SISTEM & BISNIS (Business Analysis Scope) -->
+          <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 14px; padding: 1.75rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-light); flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <span class="mono-tag" style="background: var(--brand-light); color: var(--brand-primary); font-size: 0.75rem; margin-bottom: 0.35rem;">BAGIAN 1 // ANALISIS SISTEM &amp; BISNIS</span>
+                <h4 style="font-size: 1.35rem; color: var(--text-main);">📋 Reverse Engineering Flow &amp; Logistik Darurat ERS</h4>
+              </div>
+              <span style="font-size: 0.82rem; background: var(--bg-surface); padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid var(--border-medium); color: var(--text-muted); font-weight: 600;">Business Analyst Scope</span>
+            </div>
+
+            <div class="project-body-grid">
+              <div class="deliverable-box">
+                <h5 style="font-size: 1.05rem; margin-bottom: 1rem; color: var(--brand-primary);">Scope Reverse Engineering &amp; Fitur Logistik:</h5>
+                <ul class="deliverable-list">
+                  <li><strong>Standardisasi UML Sequence Diagram:</strong> Melakukan reverse-engineering terhadap alur dispatcing menara darurat legacy menjadi diagram sekuens UML terstandarisasi.</li>
+                  <li><strong>Mobile Stock Opname UI:</strong> Merancang wireframe antarmuka stock opname mobile berfitur pemindaian barcode/QR secara real-time.</li>
+                  <li><strong>Incident Ticketing &amp; BPO Flow:</strong> Penerjemahan kebutuhan stakeholder BPO ke dalam alur pembuatan tiket insiden darurat yang cepat.</li>
+                  <li><strong>Material Reservation Logic:</strong> Mengoptimalkan logika reservasi material untuk mencegah duplikasi stok saat kondisi mobilisasi darurat.</li>
+                </ul>
+                <div style="margin-top: 1.25rem;">
+                  <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/Mobile ERS - Stock Opname.pdf" data-title="Mobile ERS - Stock Opname Specification Document (PDF)" style="width: 100%; font-size: 0.85rem;">📄 View Mobile ERS Spec (PDF View) ↗</button>
+                </div>
+              </div>
+
+              <div class="project-diagram-box">
+                <h5 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">Emergency Mobilization Sequence Diagram:</h5>
+                <img src="assets/powerswift-sequence.svg" alt="PowerSwift Sequence Diagram" class="modal-trigger" data-img="assets/powerswift-sequence.svg">
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">🔍 Klik diagram untuk melihat skema sequence diagram secara lengkap</p>
               </div>
             </div>
-            <div class="project-diagram-box">
-              <h4 style="margin-bottom: 0.75rem; font-size: 0.95rem; color: var(--brand-primary);">Emergency Mobilization Sequence Diagram:</h4>
-              <img src="assets/powerswift-sequence.svg" alt="PowerSwift Sequence Diagram" class="modal-trigger" data-img="assets/powerswift-sequence.svg">
-              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Click diagram to view full high-res sequence modal</p>
+          </div>
+
+          <!-- SECTION 2: AMS PLN INTEGRATION ROADMAP -->
+          <div style="background: var(--bg-main); border: 1px solid var(--border-light); border-radius: 14px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border-light); flex-wrap: wrap; gap: 0.75rem;">
+              <div>
+                <span class="mono-tag" style="background: var(--amber-light); color: var(--amber-primary); border-color: #FDE68A; font-size: 0.72rem; margin-bottom: 0.25rem;">FUTURE INTEGRATION // AMS PLN ROADMAP</span>
+                <h4 style="font-size: 1.15rem; color: var(--text-main);">✍️ Integrasi Digital Signature &amp; Korespondensi AMS PLN</h4>
+              </div>
+            </div>
+
+            <div style="background: var(--bg-surface); padding: 1rem; border-radius: 10px; border: 1px solid var(--border-light);">
+              <p style="font-size: 0.88rem; color: var(--text-main); line-height: 1.5; margin-bottom: 0.65rem;">
+                Kedepannya, sistem PowerSwift ERS akan terintegrasi penuh terkait alur surat menyurat secara digital dan verifikasi tanda tangan elektronik (Digital Signature &amp; QR Manifest) dengan <strong>AMS PLN (Asset Management System PLN)</strong>.
+              </p>
+              <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <span class="feature-pill" style="background: var(--bg-subtle);">Digital Signature Verification</span>
+                <span class="feature-pill" style="background: var(--bg-subtle);">QR Manifest Scanning</span>
+                <span class="feature-pill" style="background: var(--bg-subtle);">AMS PLN Integration</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Animated Speed Beam Section Divider -->
+  <div class="section-divider"></div>
+
+  <!-- Prototyping Evolution (Interactive 10-Second Carousel) -->
+  <section id="evolution" class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">// PROTOTYPING EVOLUTION CAROUSEL</span>
+        <h2 class="section-title">From Low-Fi Wireframes to Production Interactive Prototypes</h2>
+        <p class="section-desc">Transformasi bertahap dari requirement gathering, penyusunan sketsa Balsamiq Wireframe, hingga penulisan kode HTML/CSS High-Fi yang terintegrasi (Slide otomatis berganti setiap 10 detik).</p>
+      </div>
+
+      <!-- Carousel Wrapper -->
+      <div class="carousel-wrapper" id="evoCarouselWrapper">
+        <!-- Prev & Next Controls -->
+        <button class="carousel-control-btn prev" id="evoPrevBtn" aria-label="Previous Slide">‹</button>
+        <button class="carousel-control-btn next" id="evoNextBtn" aria-label="Next Slide">›</button>
+
+        <!-- Carousel Track -->
+        <div class="carousel-track" id="evoCarouselTrack">
+
+          <!-- SLIDE 1: EVOLUTION OVERVIEW ARCHITECTURE -->
+          <div class="carousel-slide active-slide">
+            <div class="project-detail-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+                <div>
+                  <span class="mono-tag" style="background: var(--brand-light); color: var(--brand-primary); border-color: var(--brand-border); margin-bottom: 0.35rem;">SLIDE 1 OF 3 // STRATEGIC OVERVIEW</span>
+                  <h4 style="color: var(--text-main); font-size: 1.3rem;">📊 End-to-End Prototyping Evolution Blueprint</h4>
+                </div>
+                <span style="font-size: 0.8rem; background: var(--bg-subtle); padding: 0.35rem 0.8rem; border-radius: 20px; border: 1px solid var(--border-light); color: var(--text-muted); font-weight: 600;">Concept to Production Flow</span>
+              </div>
+              <div style="text-align: center;">
+                <img src="assets/wireframe-balsamiq-vs-hifi.svg" alt="Prototyping Evolution Visual" class="modal-trigger" data-img="assets/wireframe-balsamiq-vs-hifi.svg" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); cursor: pointer;">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.85rem;">🔍 Klik arsitektur di atas untuk memperbesar visual perbandingan Low-Fi ke High-Fi</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2: FASE 1 LOW-FI BALSAMIQ & SYSTEM SPECIFICATION PDFS -->
+          <div class="carousel-slide">
+            <div class="project-detail-card">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <span class="mono-tag" style="background: var(--amber-light); color: var(--amber-primary); border-color: #FDE68A; margin-bottom: 0.35rem;">SLIDE 2 OF 3 // FASE 1: REQUIRMENT DISCOVERY &amp; IDEATION</span>
+                  <h4 style="color: var(--text-main); font-size: 1.3rem;">✏️ Low-Fi Wireframing &amp; Technical Spec Blueprints (PDF Overview)</h4>
+                  <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 750px; margin-top: 0.25rem;">Kemampuan merancang sketsa antarmuka awal bersama Business Process Owner (BPO), memetakan alur kerja sistem, hak akses CRUD, aturan multiselect unit, serta catatan bisnis teknis dalam bentuk dokumen spesifikasi PDF terstruktur.</p>
+                </div>
+                <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="Wireframe Specification &amp; System Blueprint Document (PDF)" style="font-size: 0.85rem;">📄 View Blueprint PDF ↗</button>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;">
+                <!-- PDF Capture 1: Monitoring AHI -->
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                  <div style="position: relative; height: 190px; overflow: hidden; background: #fff; cursor: pointer;" class="pdf-modal-trigger" data-pdf="assets/Monitoring AHI.pdf" data-title="Monitoring AHI Specification Document (PDF)">
+                    <img src="assets/monitoring-ahi-thumb.png" alt="Monitoring AHI PDF Overview Capture" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 0.2s ease;">
+                    <span style="position: absolute; bottom: 8px; right: 8px; background: rgba(15, 23, 42, 0.85); color: #fff; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 4px;">🔍 Click PDF View</span>
+                  </div>
+                  <div style="padding: 0.85rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                      <strong style="font-size: 0.88rem; display: block; color: var(--text-main); margin-bottom: 0.25rem;">1. Monitoring AHI Specification (PDF)</strong>
+                      <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.4;">Spesifikasi algoritma AHI scoring trafo &amp; konsolidasi 11+ database legacy.</p>
+                    </div>
+                    <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/Monitoring AHI.pdf" data-title="Monitoring AHI Specification Document (PDF)" style="width: 100%; font-size: 0.76rem; padding: 0.3rem 0.5rem; margin-top: 0.6rem;">📄 Open PDF View ↗</button>
+                  </div>
+                </div>
+
+                <!-- PDF Capture 2: Mobile ERS Stock Opname -->
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                  <div style="position: relative; height: 190px; overflow: hidden; background: #fff; cursor: pointer;" class="pdf-modal-trigger" data-pdf="assets/Mobile ERS - Stock Opname.pdf" data-title="Mobile ERS Stock Opname Specification Document (PDF)">
+                    <img src="assets/mobile-ers-thumb.png" alt="Mobile ERS Stock Opname PDF Overview Capture" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 0.2s ease;">
+                    <span style="position: absolute; bottom: 8px; right: 8px; background: rgba(15, 23, 42, 0.85); color: #fff; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 4px;">🔍 Click PDF View</span>
+                  </div>
+                  <div style="padding: 0.85rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                      <strong style="font-size: 0.88rem; display: block; color: var(--text-main); margin-bottom: 0.25rem;">2. Mobile ERS Stock Opname (PDF)</strong>
+                      <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.4;">Wireframe mobile barcode inventory opname &amp; alur emergency mobilization.</p>
+                    </div>
+                    <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/Mobile ERS - Stock Opname.pdf" data-title="Mobile ERS Stock Opname Specification Document (PDF)" style="width: 100%; font-size: 0.76rem; padding: 0.3rem 0.5rem; margin-top: 0.6rem;">📄 Open PDF View ↗</button>
+                  </div>
+                </div>
+
+                <!-- PDF Capture 3: Wireframe Specifications -->
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
+                  <div style="position: relative; height: 190px; overflow: hidden; background: #fff; cursor: pointer;" class="pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="System Requirement & Wireframe Blueprint Document (PDF)">
+                    <img src="assets/wireframe-spec-thumb.png" alt="Wireframe Specification PDF Overview Capture" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 0.2s ease;">
+                    <span style="position: absolute; bottom: 8px; right: 8px; background: rgba(15, 23, 42, 0.85); color: #fff; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 4px;">🔍 Click PDF View</span>
+                  </div>
+                  <div style="padding: 0.85rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                      <strong style="font-size: 0.88rem; display: block; color: var(--text-main); margin-bottom: 0.25rem;">3. Power Inspect Wireframe Blueprint (PDF)</strong>
+                      <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.4;">Sketsa wireframe Balsamiq Mockup untuk survey gardu induk &amp; aturan CRUD.</p>
+                    </div>
+                    <button class="btn btn-outline pdf-modal-trigger" data-pdf="assets/wireframe-specifications.pdf" data-title="System Requirement & Wireframe Blueprint Document (PDF)" style="width: 100%; font-size: 0.76rem; padding: 0.3rem 0.5rem; margin-top: 0.6rem;">📄 Open PDF View ↗</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 3: FASE 2 HIGH-FI INTERACTIVE PROTOTYPING -->
+          <div class="carousel-slide">
+            <div class="project-detail-card">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                  <span class="mono-tag" style="background: var(--emerald-light); color: var(--emerald-primary); border-color: #A7F3D0; margin-bottom: 0.35rem;">SLIDE 3 OF 3 // FASE 2: PRODUCTION READY HTML PROTOTYPE</span>
+                  <h4 style="color: var(--text-main); font-size: 1.3rem;">🌐 High-Fi Prototyping (HTML/CSS Production Capability)</h4>
+                  <p style="font-size: 0.92rem; color: var(--text-muted); max-width: 750px; margin-top: 0.25rem;">Kemampuan menerjemahkan dokumen wireframe &amp; BRS menjadi aplikasi web prototype yang responsif, siap diuji dalam tahap UAT, dan terhubung dengan komponen UI nyata (Peta Leaflet, Chart, &amp; Sidebar Modul).</p>
+                </div>
+                <a href="https://ardvarez.github.io/hifi-transmisi/hifi-home/home.html" target="_blank" rel="noopener" class="btn btn-success" style="font-size: 0.85rem;">🚀 Launch Live Hi-Fi Application ↗</a>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
+                  <img src="assets/hifi-portal-home.png" alt="Hi-Fi Portal Home — Enterprise Module Selector" class="modal-trigger" data-img="assets/hifi-portal-home.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+                  <div style="padding: 0.85rem 1rem;">
+                    <h5 style="font-size: 0.92rem; margin-bottom: 0.25rem;">HiFi Portal — Module Selector</h5>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">Portal utama Hi-Fi dengan sidebar navigasi 3 modul enterprise: HiFi ERS, HiFi NewPST, dan HiFi Power Inspect.</p>
+                  </div>
+                </div>
+                <div style="background: var(--bg-subtle); border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden;">
+                  <img src="assets/hifi-dashboard-ers.png" alt="Hi-Fi Dashboard ERS — Geospatial Map &amp; KPI Metrics" class="modal-trigger" data-img="assets/hifi-dashboard-ers.png" style="width: 100%; display: block; cursor: pointer; transition: transform 0.2s ease;">
+                  <div style="padding: 0.85rem 1rem;">
+                    <h5 style="font-size: 0.92rem; margin-bottom: 0.25rem;">Dashboard ERS — Geospatial &amp; KPI</h5>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">Dashboard ketersediaan ERS dengan peta Leaflet, KPI metrics (Total ERS Terpasang), dan chart analitik per unit.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Carousel Footer: Indicator Dots & 10-Second Timer Bar -->
+      <div class="carousel-footer-bar">
+        <div class="carousel-dots" id="evoCarouselDots">
+          <span class="carousel-dot active" data-slide="0" title="Slide 1: Overview Blueprint"></span>
+          <span class="carousel-dot" data-slide="1" title="Slide 2: Low-Fi Balsamiq"></span>
+          <span class="carousel-dot" data-slide="2" title="Slide 3: High-Fi Interactive"></span>
+        </div>
+        <div class="carousel-timer-track">
+          <div class="carousel-timer-progress" id="evoTimerProgress"></div>
+        </div>
+        <span style="font-size: 0.75rem; color: var(--text-muted);">⏱️ Auto-advance every 10 seconds (Click arrows or dots to navigate)</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Animated Speed Beam Section Divider -->
+  <div class="section-divider"></div>
 
   <!-- Enterprise Portfolio Impact Summary -->
   <section id="impact" class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
@@ -1433,6 +1684,9 @@
       </div>
     </div>
   </section>
+
+  <!-- Animated Speed Beam Section Divider -->
+  <div class="section-divider"></div>
 
   <!-- Contact & Call to Action -->
   <section id="contact" class="section">

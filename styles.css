@@ -25,6 +25,12 @@
   --amber-light: #FFFBEB;
   --rose-primary: #DC2626;
 
+  /* Motorsport (F1) & Basketball Court Energetic Accents */
+  --racing-red: #E10600;         /* F1 Racing Red */
+  --racing-red-light: #FEF2F2;
+  --court-orange: #EA580C;       /* Basketball Court Orange */
+  --court-orange-light: #FFF7ED;
+
   /* Typography Colors */
   --text-main: #0F172A;      /* Slate 900 */
   --text-muted: #475569;     /* Slate 600 */
@@ -55,6 +61,40 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+}
+
+/* Animated Section Divider with Racing Telemetry Beam */
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(226, 232, 240, 0.5) 0%, rgba(37, 99, 235, 0.15) 30%, rgba(225, 6, 0, 0.2) 70%, rgba(234, 88, 12, 0.15) 100%);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--brand-primary), var(--racing-red), var(--court-orange), transparent);
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.8), 0 0 8px rgba(225, 6, 0, 0.8);
+  animation: speedBeam 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes speedBeam {
+  0% {
+    left: -35%;
+  }
+  60% {
+    left: 105%;
+  }
+  100% {
+    left: 105%;
+  }
 }
 
 body {

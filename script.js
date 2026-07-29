@@ -176,4 +176,92 @@ document.addEventListener('DOMContentLoaded', () => {
   // Trigger stat animation on page load
   setTimeout(animateStats, 300);
 
+  /* -------------------------------------------------------------------------- */
+  /* 5. Prototyping Evolution 10-Second Auto-Play Carousel Slider
+  /* -------------------------------------------------------------------------- */
+  const evoTrack = document.getElementById('evoCarouselTrack');
+  const evoSlides = document.querySelectorAll('#evoCarouselTrack .carousel-slide');
+  const evoPrevBtn = document.getElementById('evoPrevBtn');
+  const evoNextBtn = document.getElementById('evoNextBtn');
+  const evoDots = document.querySelectorAll('#evoCarouselDots .carousel-dot');
+  const evoTimerProgress = document.getElementById('evoTimerProgress');
+  const evoWrapper = document.getElementById('evoCarouselWrapper');
+
+  if (evoTrack && evoSlides.length > 0) {
+    let currentSlide = 0;
+    const totalSlides = evoSlides.length;
+    const slideDuration = 10000; // 10 seconds auto advance
+    let startTime = null;
+    let animFrame = null;
+
+    const updateSlidePosition = (slideIndex) => {
+      currentSlide = (slideIndex + totalSlides) % totalSlides;
+      evoTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+      evoSlides.forEach((s, idx) => {
+        if (idx === currentSlide) {
+          s.classList.add('active-slide');
+        } else {
+          s.classList.remove('active-slide');
+        }
+      });
+
+      evoDots.forEach((d, idx) => {
+        if (idx === currentSlide) {
+          d.classList.add('active');
+        } else {
+          d.classList.remove('active');
+        }
+      });
+
+      resetProgressTimer();
+    };
+
+    const resetProgressTimer = () => {
+      if (animFrame) cancelAnimationFrame(animFrame);
+      if (evoTimerProgress) evoTimerProgress.style.width = '0%';
+      startTime = performance.now();
+      animateTimer();
+    };
+
+    const animateTimer = (now = performance.now()) => {
+      const elapsed = now - startTime;
+      const progressPercent = Math.min((elapsed / slideDuration) * 100, 100);
+
+      if (evoTimerProgress) evoTimerProgress.style.width = `${progressPercent}%`;
+
+      if (elapsed >= slideDuration) {
+        updateSlidePosition(currentSlide + 1);
+      } else {
+        animFrame = requestAnimationFrame(animateTimer);
+      }
+    };
+
+    if (evoPrevBtn) {
+      evoPrevBtn.addEventListener('click', () => updateSlidePosition(currentSlide - 1));
+    }
+
+    if (evoNextBtn) {
+      evoNextBtn.addEventListener('click', () => updateSlidePosition(currentSlide + 1));
+    }
+
+    evoDots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => updateSlidePosition(idx));
+    });
+
+    if (evoWrapper) {
+      evoWrapper.addEventListener('mouseenter', () => {
+        if (animFrame) cancelAnimationFrame(animFrame);
+      });
+      evoWrapper.addEventListener('mouseleave', () => {
+        const currentWidthPercent = parseFloat(evoTimerProgress.style.width || '0');
+        startTime = performance.now() - (currentWidthPercent / 100) * slideDuration;
+        animateTimer();
+      });
+    }
+
+    // Initialize timer
+    resetProgressTimer();
+  }
+
 });
